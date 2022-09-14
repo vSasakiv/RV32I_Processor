@@ -1,0 +1,5 @@
+module template (
+  ports
+);
+  
+endmodule
