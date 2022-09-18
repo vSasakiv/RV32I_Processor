@@ -1,5 +1,7 @@
-module template (
+module template #(
+  parameters
+) (
   ports
 );
-  
+
 endmodule
