@@ -1,7 +1,12 @@
 module cpu #(
-  parameters
+
 ) (
-  ports
+  input A,
+  input B,
+  output C,
 );
+
+
+reg C = {B, A};
 
 endmodule
