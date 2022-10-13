@@ -24,7 +24,7 @@ RightShifter UUT (.A(A), .B(B), .SRA(S), .Shifted(C));
 initial begin
     errors = 0;
     S = 1'b0; // Parâmetro, 0 se é logical shift, 1 se é arithmetic shift
-    A = 32'b10000000000000000000000000000000; // Parâmetro, valor que será shiftado para a direita
+    A = {1'b1, 31'b0}; // Parâmetro, valor que será shiftado para a direita
 
     // Laços for que passa por todos os valores de i em que é necessário dar shift 
     for (i = 0; i < 32; i = i +1) begin

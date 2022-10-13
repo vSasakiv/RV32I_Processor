@@ -33,7 +33,7 @@ Adder32b UUT (.A(A), .B(B), .SUB(SUB), .S(S), .COUT(COUT));
 
 initial begin
     errors = 0;
-    SUB = 0; //Parametro para teste: 0 para fazer A + B, 1 para A + (-B)
+    SUB = 1; //Parametro para teste: 0 para fazer A + B, 1 para A + (-B)
 
     // Laços for que passam por todas as somas possíveis entre os números de 0 a 255
     for (i = 0; i < 256; i = i + 1)
@@ -42,9 +42,8 @@ initial begin
             B = j;
             if (SUB == 0)
                 Sum = A + B;
-            else begin 
-                Sum = A + (B ^ 32'b11111111111111111111111111111111) + 1;  // Caso SUB = 1, faz o 2's complement em B
-            end
+            else 
+                Sum = A + (B ^ {(32){1'b1}}) + 1;  // Caso SUB = 1, faz o 2's complement em B
             correctS = Sum[31:0];
             correctCOUT = Sum[32]; // posição do carry out
             #10
