@@ -1,5 +1,9 @@
 
 DIR := ${CURDIR}
+define \n
+
+
+endef
 rwildcard=$(wildcard $1$2) $(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2))
 VERILOG_FILES := $(call rwildcard, src/,*.v)
 
@@ -18,10 +22,10 @@ prepare:
 	@echo Pasta Work foi Renovada
 
 modules:
-	$(foreach var, $(VERILOG_MODULES) , @vlog "$(DIR)/$(var)")
+	$(foreach var, $(VERILOG_MODULES) , @vlog "$(DIR)/$(var)" ${\n})
 
 tests:
-	$(foreach var, $(VERILOG_TESTBENCHES) , @vlog "$(DIR)/$(var)")
+	$(foreach var, $(VERILOG_TESTBENCHES) , @vlog "$(DIR)/$(var)" ${\n})
 
 all:
 	@make modules
