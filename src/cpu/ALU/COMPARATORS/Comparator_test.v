@@ -20,7 +20,7 @@ task Check_u;
     $display("unsigned: A: %32b, B: %32b, expect: %b", A, B, LU);
   end
 endtask
-task Check_s;
+task Check_s; 
   input expect_ls;
   if (expect_ls != LS) begin
     $display("signed: A: %32b, B: %32b, expect: %b", A, B, LS);
