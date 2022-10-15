@@ -18,7 +18,7 @@ module ALU (
   Adder32b A0 (.A(A), .B(B), .S(ADD), .SUB(sub_sra), .COUT(COUT)); // Módulo de soma
   And32b bAND0 (.A(A), .B(B), .And(bAND)); // Módulo and bitwise
   Or32b bOR0 (.A(A), .B(B), .O(bOR)); // Módulo or bitwise
-  Xor32b bXOR0 (.A(A), .B(B), .X(bXOR)); // Módulo xor bitwise
+  Xor32b bXOR0 (.A(A), .B(B), .Xor(bXOR)); // Módulo xor bitwise
   LeftLShifter LeftS0 (.A(A), .B(B), .S(SL)); // Módulo barrel left shifter
   RightShifter RightS0 (.A(A), .B(B), .SRA(sub_sra), .Shifted(SR)); // Módulo barrel right shifter
   Comparator C0 (.A_S(A[31]), .B_S(B[31]), .S(ADD), .COUT(COUT), .EQ(EQ), .LS(LS), .LU(LU));

@@ -4,21 +4,21 @@ Para todos dois números entre 0 e 255, faz um bitwise XOR deles e compara o res
 Se algum valor for diferente do esperado ("xpect"), mostra os valores na saída e aumenta a contagem do erros.
 Ao final, mostra a quantidade total de erros obtidos */
 module Xor32b_TB ();
-reg [31:0] A, B, correctX;
-wire [31:0] X;
+reg [31:0] A, B, correctXor;
+wire [31:0] Xor;
 integer errors, i, j;
 
 // task que verifica se a saída do módulo é igual ao valor esperado
 task Check;
-    input [31:0] xpectX;
-    if (X != xpectX) begin 
-        $display ("Error A: %32b, B: %32b, expected %32b, got X: %32b", A, B, xpectX, X);
+    input [31:0] xpectXor;
+    if (Xor != xpectXor) begin 
+        $display ("Error A: %32b, B: %32b, expected %32b, got X: %32b", A, B, xpectXor, Xor);
         errors = errors + 1;
     end
 endtask
 
 // módulo testado
-Xor32b UUT (.A(A), .B(B), .X(X));
+Xor32b UUT (.A(A), .B(B), .Xor(Xor));
 
 
 initial begin
@@ -29,9 +29,9 @@ initial begin
         for (j = 0; j < 256; j = j + 1) begin
             A = i;
             B = j;
-            correctX = A ^ B;
+            correctXor = A ^ B;
             #10
-            Check (correctX);
+            Check (correctXor);
         end
     $display ("Finished, got %2d errors", errors);
 end
