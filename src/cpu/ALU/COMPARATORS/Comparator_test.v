@@ -5,7 +5,7 @@ signed e unsigned, que roda para todos as possíveis
 combinações de A e B, sendo A e B números signed em complemento de 2 
 de 8 bits, já que executar este programa
 para todas as combinações A e B de 32 bits é inviável
- */
+*/
 module Comparator_TB ();
 reg [31:0] A, B; // A, B
 reg signed [31:0] As, Bs; // A e B signed
