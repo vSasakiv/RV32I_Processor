@@ -1,11 +1,11 @@
 /* 
-Modulo para realização de comparação entre dois números
+Módulo para realização de comparação entre dois números
 signed A e B, devoldendo R = 1, caso A < B,
 dados os bits de sinal de A e B e da subtração,
 além do sinal de Igualdade
  */
 module ComparatorLTSigned (
-  input wire A_S, B_S, S_S, EQ, // entradas de sinal e igualdade
+  input wire A_S, B_S, S_S, EQ, // Entradas de sinal e igualdade
   output wire R // Saída
 );
 

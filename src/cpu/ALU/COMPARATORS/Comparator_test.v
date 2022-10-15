@@ -9,7 +9,7 @@ para todas as combinações A e B de 32 bits é inviável
 module Comparator_TB ();
 reg [31:0] A, B; // A, B
 reg signed [31:0] As, Bs; // A e B signed
-wire [31:0] S; // subtração A - B
+wire [31:0] S; // Subtração A - B
 reg correct_u, correct_s, correct_eq; // Valor correto
 wire EQ, COUT, LS, LU; // Valores entregues por módulos, igualdade, Carry out e Resultado
 integer i, j, errors; // Contadores

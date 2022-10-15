@@ -18,7 +18,7 @@ task Check;
     end
 endtask
 
-// Unidade em test: comparador de igualdade
+// Unidade em teste: comparador de igualdade
 ComparatorEQ UUT (.S(A), .EQ(EQ));
 
 initial begin

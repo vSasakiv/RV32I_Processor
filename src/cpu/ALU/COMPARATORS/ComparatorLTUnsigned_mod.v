@@ -1,11 +1,11 @@
 /* 
-Modulo para realização de comparação entre dois números
+Módulo para realização de comparação entre dois números
 unsigned A e B, devoldendo R = 1, caso A < B,
 dados o Carry out da soma pelo complemento de dois
 do segundo (subtração) e a igualdade.
  */
 module ComparatorLTUnsigned (
-  input wire COUT, EQ, // entradas COUT e igualdade
+  input wire COUT, EQ, // Entradas COUT e igualdade
   output wire R // Saída
 );
 
