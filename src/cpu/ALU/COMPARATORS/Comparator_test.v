@@ -49,7 +49,7 @@ initial begin
         Bs = j;
         correct_u = A < B;
         correct_s = As < Bs;
-        correct_eq = (A == B) ? 1 : 0;
+        correct_eq = A == B;
         #1
         Check_u (correct_u);
         Check_s (correct_s);
