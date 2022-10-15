@@ -4,7 +4,7 @@ O somador carry look ahead calcula os carrys fazendo
 Ci = Gi + Pi*Ci-1 
 sendo:
     Gi = Ai * Bi (generate, verifica se Ai e Bi geram um carry)
-    Pi =  Ai + Bi (progate, verifica se Ai e Bi propagam um carry)
+    Pi =  Ai + Bi (propagate, verifica se Ai e Bi propagam um carry)
     Ci-1 = carry anterior
 
 cada carry i é somado com os bits Ai e Bi no somador parcial de um bit (PartialFullAdder1b)
