@@ -17,7 +17,7 @@ module Adder32b (
     /* XOR entre cada bit de B e o SUB, responsável por complementar B caso SUB = 1*/
     assign C = B ^ {32{SUB}};
 
-    /* Sequencia de Carry Look-Ahead Addersde 8 bits, interligados de modo Ripple Carry */
+    /* Sequencia de Carry Look-Ahead Adders de 8 bits, interligados de modo Ripple Carry */
     CLAAdder8b U7_0 (.A(A[7:0]), .B(C[7:0]), .CIN(SUB), .S(S[7:0]), .COUT(C1)); // Sinal SUB ligado diretamente no CIN, para somar 1 do 2's complement caso SUB = 1 
     CLAAdder8b U15_8 (.A(A[15:8]), .B(C[15:8]), .CIN(C1), .S(S[15:8]), .COUT(C2));
     CLAAdder8b U23_16 (.A(A[23:16]), .B(C[23:16]), .CIN(C2), .S(S[23:16]), .COUT(C3));
