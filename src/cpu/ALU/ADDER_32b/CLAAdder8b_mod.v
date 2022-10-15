@@ -10,12 +10,12 @@ sendo:
 cada carry i é somado com os bits Ai e Bi no somador parcial de um bit (PartialFullAdder1b)
 */
 
-module CLAAdder8b(
-    input [7:0] A, B,
-    input CIN,
-    output [7:0] S,
-    output COUT
-);
+module CLAAdder8b(A, B, CIN, S, COUT);
+    input [7:0] A, B;
+    input CIN;
+    output [7:0] S;
+    output COUT;
+
     wire C1, C2, C3, C4, C5, C6, C7;
     wire P0, P1, P2, P3, P4, P5, P6, P7;
     wire PC1, PC2, PC3, PC4, PC5, PC6, PC7, PC8;

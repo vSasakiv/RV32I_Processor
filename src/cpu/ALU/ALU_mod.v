@@ -11,8 +11,7 @@ module ALU (
   output wire EQ, LU, LS // Saídas de comparador, são sempre expostas para a C.U.
 );
   
-  wire [31:0] ADD, bXOR, bAND, bOR, SR, SL; // Guardam valores de possíveis operações que
-                                            // podem ser selecionados pelo FUNC
+  wire [31:0] ADD, bXOR, bAND, bOR, SR, SL; // Guardam valores de possíveis operações que podem ser selecionados pelo FUNC
   wire COUT; // Fio que contém o carry out da soma / subtração
   
   Adder32b A0 (.A(A), .B(B), .S(ADD), .SUB(sub_sra), .COUT(COUT)); // Módulo de soma
