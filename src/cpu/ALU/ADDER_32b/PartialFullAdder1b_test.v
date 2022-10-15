@@ -1,6 +1,6 @@
 `timescale 1ns / 100ps
 /* Testbench para o módulo do somador parcial de 1 bit.
-Faz todas as combinações de somas possíves com números de 1 bit e verifica se a soma S, o progate P, e o generte G, são iguais aos da saída do módulo.
+Faz todas as combinações de somas possíves com números de 1 bit e verifica se a soma S, o propagate P, e o generate G, são iguais aos da saída do módulo.
 Se algum valor for diferente do esperado ("xpect"), mostra os valores na saída e aumenta a contagem do erros 
 Ao final, mostra a quantidade total de erros obtidos */
 module PartialFullAdder1b_TB ();
