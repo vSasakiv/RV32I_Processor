@@ -1,6 +1,6 @@
 `timescale  1ns / 100ps
-/* Testbench para o módulo da Unidade Lógico Aritmetica - ALU
-Para dois números de 32 bits, A e B (parâmetros arbitrários), performa todas as operações lógicas e aritmeticas,
+/* Testbench para o módulo da Unidade Lógica Aritmética - ALU
+Para dois números de 32 bits, A e B (parâmetros arbitrários), performa todas as operações lógicas e aritméticas,
 passando por todos os valores de FUNC, tanto para sub_sra = 0 ou sub_sra = 1.
 Caso algum resultado seja diferente do esperado ("xpect"), mostra os valores obtidos na saída e aumenta a contagem de erros.  
 Ao final, mostra a quantidade total de erros obtidos */
