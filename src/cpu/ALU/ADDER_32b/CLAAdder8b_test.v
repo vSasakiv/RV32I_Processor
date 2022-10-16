@@ -22,7 +22,7 @@ task Check;
         errors = errors + 1;
     end
     if (COUT != xpectCOUT) begin 
-        $display ("Error A: %8b, B: %8b, expected %8b, got COUT: %8b", A, B, xpectCOUT, COUT);
+        $display ("Error A: %8b, B: %8b, expected %b, got COUT: %b", A, B, xpectCOUT, COUT);
         errors = errors + 1;
     end
     end
