@@ -55,13 +55,14 @@ for (i = 0; i < 8; i = i + 1) begin
   // percorremos todos os valores de FUNC e testamos se os valores estão realmente corretos
   FUNC = i;
   case (FUNC)
-    3'b0: correct = A + B;
+    3'b000: correct = A - B;
     3'b001: correct = A << B[4:0];
+    3'b010: correct = A < B;
+    3'b011: correct = As < Bs;
     3'b100: correct = A ^ B;
-    3'b101: correct = A >> B[4:0];
+    3'b101: correct = A >>> B[4:0];
     3'b110: correct = A | B;
     3'b111: correct = A & B;
-    default: correct = A + B;
   endcase
   correctEQ = A == B;
   correctLS = As < Bs;
@@ -74,13 +75,14 @@ sub_sra = 1;
 for (i = 0; i < 8; i = i + 1) begin
   FUNC = i;
   case (FUNC)
-    3'b0: correct = A - B;
+    3'b000: correct = A - B;
     3'b001: correct = A << B[4:0];
+    3'b010: correct = A < B;
+    3'b011: correct = As < Bs;
     3'b100: correct = A ^ B;
     3'b101: correct = A >>> B[4:0];
     3'b110: correct = A | B;
     3'b111: correct = A & B;
-    default: correct = A - B;
   endcase
   correctEQ = A == B;
   correctLS = As < Bs;

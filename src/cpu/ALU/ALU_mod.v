@@ -27,13 +27,14 @@ module ALU (
   always @(FUNC) begin
     // Case baseado nas instruções presentes na ISA, para poupar o máximo da C.U.
     case (FUNC)
-      3'b0: S = ADD;
+      3'b000: S = ADD;
       3'b001: S = SL;
+      3'b010: S = LS;
+      3'b011: S = LU;
       3'b100: S = bXOR;
       3'b101: S = SR;
       3'b110: S = bOR;
       3'b111: S = bAND;
-      default: S = ADD;
     endcase
   end
 
