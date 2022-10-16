@@ -9,7 +9,7 @@ reg [31:0] A, B; // Entradas A e B da ALU unsigned
 reg signed [31:0] As, Bs; // Entradas A e B signed
 reg [2:0] FUNC; // Selector de função
 reg sub_sra; // Seletor de subtração ou shift aritmético
-reg [31:0] correct; // net para expressar o valor correto
+reg [31:0] correct; // reg para expressar o valor correto
 reg correctEQ, correctLU, correctLS; // expressa os valores corretos para as comparações
 wire [31:0] S; // net que contém o resultado entregue pela ALU
 wire EQ, LU, LS; // nets que contém os sinais de comparação
