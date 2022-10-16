@@ -1,8 +1,8 @@
 `timescale 1ns / 100ps
 
-/* Testbench que teste o módulo do somador completo de 1 bit.
+/* Testbench que testa o módulo do somador completo de 1 bit.
 Faz todas as combinações de somas possíves com números de 1 bit e verifica se a soma S e o carry out COUT são iguais aos da saída do módulo.
-Se algum valor for diferente do esperado ("xpect"), mostra os valores na saída e aumenta a contagem do erros.
+Se algum valor for diferente do esperado ("xpect"), mostra os valores na saída e aumenta a contagem de erros.
 Ao final, mostra a quantidade total de erros obtidos */
 module FullAdder1b_tb ();
 reg A, B, CIN, correctCOUT, correctS;
