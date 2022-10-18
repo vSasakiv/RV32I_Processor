@@ -8,7 +8,7 @@ module DecoderRINSN (
   input wire [31:0] INSN , // instrução de 32 bits
   input wire CLK, // sinal de Clock
   output wire [4:0] rsa, rsb, rd, // Registradores a serem acessados
-  output wire [2:0] func3, // Selecionador de funções da ALU
+  output wire [2:0] func3, sx_size,// Selecionador de funções da ALU
   output wire [1:0] rd_sel, // Selecionador de entrada para RD
   output wire alu_sel_a, alu_sel_b, sub_sra, addr_sel, pc_next_sel, pc_alu_sel,
   // Controle dos multiplexadores de entrada da ALU, controle de adição/subtração
@@ -34,7 +34,7 @@ module DecoderRINSN (
   assign pc_next_sel = 0; // O PC continua recebendo o seu valor incrementado em 4
   assign pc_alu_sel = 0; // A ALU do PC contínua recebendo 4
 
-  assign sx_size = 1'bx; // Não importa, já que este bloco não é utilizado na instrução
+  assign sx_size = 3'bxxx; // Não importa, já que este bloco não é utilizado na instrução
   assign mem_clk = 0; // É setado para 0, para evitar problemas com gravação de memória.
 
 endmodule
