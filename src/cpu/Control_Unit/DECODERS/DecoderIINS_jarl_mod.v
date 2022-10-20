@@ -15,11 +15,7 @@ module DecoderIINSN_jarl (
 
   assign addr_sel = 0; // o endereço de memória deve continuar recebendo o pc
 
-  assign sub_sra = 0;
-  // a subtração deve existir nos casos que precisamos de funções
-  // de comparação, como slti e sltiu, e no shift direito quando 
-  // o segundo bit mais significativo for 1
-  
+  assign sub_sra = 0; // como haverá uma soma, devemos setar sub_sra com 0.
   assign pc_next_sel = 1; // O PC continua deve receber o valor provindo da alu
   assign pc_alu_sel = 0; // A ALU do PC contínua recebendo 4
 
