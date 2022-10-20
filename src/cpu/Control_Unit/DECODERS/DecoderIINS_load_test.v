@@ -28,34 +28,34 @@ task Check;
   input rd_clk_x, mem_clk_x;
 
   begin
-  if (sub_sra_x != sub_sra) begin
+  if (sub_sra_x !== sub_sra) begin
     $display("Error on sub_sra: %b, Expected: %b", sub_sra, sub_sra_x);
     errors = errors+1;
   end
-  if (addr_sel_x != addr_sel) begin
+  if (addr_sel_x !== addr_sel) begin
     $display("Error on addr_sel: %b, Expected: %b", addr_sel, addr_sel_x);
     errors = errors+1;
   end
-  if (pc_next_sel_x != pc_next_sel) begin
-    $display("Error on pc_next_sel: %b, Expected: %b", pc_next_sel, pc_next_sel_x);
-    errors = errors+1;
-  end
-  if (pc_alu_sel_x != pc_alu_sel) begin
+  if (pc_alu_sel_x !== pc_alu_sel) begin
     $display("Error on pc_alu_sel: %b, Expected: %b", pc_alu_sel, pc_alu_sel_x);
     errors = errors+1;
   end
-  if (rd_clk_x != rd_clk) begin
+  if (pc_next_sel_x !== pc_next_sel) begin
+    $display("Error on pc_next_sel: %b, Expected: %b", pc_next_sel, pc_next_sel_x);
+    errors = errors+1;
+  end
+  if (rd_clk_x !== rd_clk) begin
     $display("Error on rd_clk: %b, Expected: %b", rd_clk, rd_clk_x);
     errors = errors+1;
   end
-  if (mem_clk_x != mem_clk) begin
+  if (mem_clk_x !== mem_clk) begin
     $display("Error on mem_clk: %b, Expected: %b", mem_clk, mem_clk_x);
     errors = errors+1;
   end
   end
 endtask
 
-// Unidade em teste, Decoder R
+// Unidade em teste, Decoder I para load
 DecoderIINSN_load UUT (
   .INSN(INSN),
   .CLK(CLK), 
@@ -82,7 +82,7 @@ initial begin
   pc_alu_sel_c = 0;
   rd_clk_c = CLK;
   mem_clk_c = 0;
-  
+  #10;
   Check( 
     sub_sra_c, 
     addr_sel_c, 

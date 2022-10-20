@@ -1,5 +1,5 @@
 /* 
-Módulo para decodificação de instruções do tipo R de acordo com
+Módulo para decodificação de instruções do tipo I para load de acordo com
 o ISA do risc-v. O módulo recebe a instrução e o sinal de clock
 do processador, e retorna todas as saídas relevantes e não relevantes
 para serem enviadas ao circuito
@@ -15,7 +15,7 @@ module DecoderIINSN_load (
   
   assign sub_sra = 1'b0; // Deve ser zero, já que queremos soma sempre.
 
-  assign addr_sel = ~CLK; // o endereço de memória deve iniciar com o resultado da alu,
+  assign addr_sel = ~CLK; // O endereço de memória deve iniciar com o resultado da alu,
   // e em seguida deve retornar para o pc, para prosseguir o programa, o que alinha com
   // o clock do processador
 
