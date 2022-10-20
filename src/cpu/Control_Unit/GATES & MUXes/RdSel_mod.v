@@ -30,29 +30,7 @@ module RdSel (CODE, rd_sel);
 input [9:0] CODE;
 output [1:0] rd_sel;
 
-            // OPCODE: 1101111 --> Code = 10'b0000000001; // Instrução tipo J 
-            // OPCODE: 1100111 --> Code = 10'b0000000010; // Instrução tipo I (Jarl)
-            // OPCODE: 0110111 --> Code = 10'b0000000100; // Instrução tipo U (LUI)
-            // OPCODE: 0010111 --> Code = 10'b0000001000; // Instrução tipo U (AUIPC)
-            // OPCODE: 1100011 --> Code = 10'b0000010000; // Instrução tipo B
-            // OPCODE: 0110011 --> Code = 10'b0000100000; // Instrução tipo R
-            // OPCODE: 0100011 --> Code = 10'b0001000000; // Instrução tipo S
-            // OPCODE: 0010011 --> Code = 10'b0010000000; // Instrução tipo I (ALU)
-            // OPCODE: 0000011 --> Code = 10'b0100000000; // Instrução tipo I (LOAD)
-            // OPCODE: 1110011 --> code = 10'b1000000000; // Instrução tipo I (CSR)
-/*
-    tabela verdade 
-    0000000001  11 (~A&~B&~C&~D&~E&~F&~G&~H&~I&J)
-    0000000010  11 (~A&~B&~C&~D&~E&~F&~G&~H&I&~J)
-    0000000100  01 (A+B+C+D+E+F+G+~H+I+J) / (~A&~B&~C&~D&~E&~F&~G&H&~I&~J)
-    0000001000  10
-    0000010000  xx
-    0000100000  10
-    0001000000  xx
-    0010000000  10
-    0100000000  00 (A+~B+C+D+E+F+G+H+I+J)
-    1000000000  xx
-*/
+    // Assign com expressão derivada das expressões
     assign rd_sel[1] = (CODE[9]|~CODE[8]|CODE[7]|CODE[6]|CODE[5]|CODE[4]|CODE[3]|CODE[2]|CODE[1]|CODE[0]) & (CODE[9]|CODE[8]|CODE[7]|CODE[6]|CODE[5]|CODE[4]|CODE[3]|~CODE[2]|CODE[1]|CODE[0]);
     assign rd_sel[0] = (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & ~CODE[3] & ~CODE[2] & ~CODE[1] & CODE[0]) | (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & ~CODE[3] & ~CODE[2] & CODE[1] & ~CODE[0]) | (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & ~CODE[3] & CODE[2] & ~CODE[1] & ~CODE[0]);
 endmodule
