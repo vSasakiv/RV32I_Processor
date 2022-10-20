@@ -3,7 +3,7 @@
 Testbench para teste do Decodificador de instruções do tipo R, que confere
 todas as saídas do módulo com as saídas corretas, e ao final retorna o número
 de erros, se houver. */
-module DecoderRINS_TB ();
+module DecoderRINSN_TB ();
 
 reg [31:0] INSN; // reg que contém a instrução
 
