@@ -1,11 +1,10 @@
 module INSNDecoderClks (
-  input wire [31:0] INSN; // Entrada da instrução
-  input wire [9:0] Code; // Código proveniente do OPDecoder
-  input wire CLK; // Sinal de Clock
+  input wire [31:0] INSN, // Entrada da instrução
+  input wire [9:0] Code, // Código proveniente do OPDecoder
+  input wire CLK, // Sinal de Clock
   input wire EQ, LS, LU, // entradas de comparação
 
-  output wire addr_sel, pc_next_sel,sub_sra,
-  output reg pc_alu_sel,
+  output wire addr_sel, pc_next_sel,sub_sra, pc_alu_sel,
   // controle de adição/subtração controle de escolha de endereço, program counter,
   //e entrada da ALU do program counter
   output wire rd_clk, mem_clk // Saídas de clock dos registradores e da memória
@@ -59,11 +58,11 @@ module INSNDecoderClks (
   assign mem_clk_c = {1'b0, mem_clk_IL, mem_clk_IA, mem_clk_S, mem_clk_R, mem_clk_B, mem_clk_UA, mem_clk_UL, mem_clk_IJ, mem_clk_J};
 
   // instânciação dos gates, retornando diretamente as saídas.
-  Gate G0 (.Code(Code), .dec_data(addr_sel_c), .S(addr_sel));
-  Gate G1 (.Code(Code), .dec_data(pc_next_sel_c), .S(pc_next_sel));
-  Gate G2 (.Code(Code), .dec_data(sub_sra_c), .S(sub_sra));
-  Gate G3 (.Code(Code), .dec_data(pc_alu_sel_c), .S(pc_alu_sel));
-  Gate G4 (.Code(Code), .dec_data(rd_clk_c), .S(rd_clk));
-  Gate G5 (.Code(Code), .dec_data(mem_clk_c), .S(mem_clk));
+  Gate G0 (.Code(Code), .Dec_Data(addr_sel_c), .S(addr_sel));
+  Gate G1 (.Code(Code), .Dec_Data(pc_next_sel_c), .S(pc_next_sel));
+  Gate G2 (.Code(Code), .Dec_Data(sub_sra_c), .S(sub_sra));
+  Gate G3 (.Code(Code), .Dec_Data(pc_alu_sel_c), .S(pc_alu_sel));
+  Gate G4 (.Code(Code), .Dec_Data(rd_clk_c), .S(rd_clk));
+  Gate G5 (.Code(Code), .Dec_Data(mem_clk_c), .S(mem_clk));
 
 endmodule
