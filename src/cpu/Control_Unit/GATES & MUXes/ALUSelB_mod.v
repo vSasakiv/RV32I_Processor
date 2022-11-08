@@ -29,6 +29,6 @@ input [9:0] CODE;
 output alu_sel_B;
 
     // Assign com expressão derivada da função
-    assign alu_sel_A = (CODE[9]|CODE[8]|CODE[7]|CODE[6]|CODE[5]|~CODE[4]|CODE[3]|CODE[2]|CODE[1]|CODE[0]) & (CODE[9]|CODE[8]|CODE[7]|CODE[6]|~CODE[5]|CODE[4]|CODE[3]|CODE[2]|CODE[1]|CODE[0]);
+    assign alu_sel_B = (CODE[9]|CODE[8]|CODE[7]|CODE[6]|CODE[5]|~CODE[4]|CODE[3]|CODE[2]|CODE[1]|CODE[0]) & (CODE[9]|CODE[8]|CODE[7]|CODE[6]|~CODE[5]|CODE[4]|CODE[3]|CODE[2]|CODE[1]|CODE[0]);
 
 endmodule
