@@ -24,7 +24,7 @@ module ALU (
   // módulo comparadores (só funciona quando sub_sra = 1)
 
   // Bloco always para síntese de multiplexador para selecionar as saídas
-  always @(FUNC) begin
+  always @(*) begin
     // Case baseado nas instruções presentes na ISA, para poupar o máximo da C.U.
     case (FUNC)
       3'b000: S = ADD;
