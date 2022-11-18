@@ -22,10 +22,10 @@ prepare:
 	@echo Pasta Work foi Renovada
 
 modules:
-	$(foreach var, $(VERILOG_MODULES) , @vlog "$(DIR)/$(var)" ${\n})
+	$(foreach var, $(VERILOG_MODULES) , @vlog -incr +acc "$(DIR)/$(var)" ${\n})
 
 tests:
-	$(foreach var, $(VERILOG_TESTBENCHES) , @vlog "$(DIR)/$(var)" ${\n})
+	$(foreach var, $(VERILOG_TESTBENCHES) , @vlog -incr +acc "$(DIR)/$(var)" ${\n})
 
 all:
 	@make modules
