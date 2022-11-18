@@ -15,8 +15,8 @@ module DecoderJINSN (
   assign sub_sra = 0; // sempre deverá ser realizada uma soma
   assign addr_sel = 0; // O endereço da memória continua sendo o program counter
 
-  assign pc_next_sel = 0; // O PC continua recebendo o seu valor incrementado em 4
-  assign pc_alu_sel = 1; // A ALU do PC recebe valor imediato
+  assign pc_next_sel = ~CLK; // O PC continua recebendo o seu valor incrementado em 4
+  assign pc_alu_sel = CLK; // A ALU do PC recebe valor imediato
 
   assign mem_clk = 0; // É setado para 0, para evitar problemas com gravação de memória.
   assign rd_clk = CLK; // O rd_clk é igual ao CLK do processador, que ao subir grava o valor.
