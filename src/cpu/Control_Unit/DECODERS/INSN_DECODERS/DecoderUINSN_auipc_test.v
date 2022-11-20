@@ -5,14 +5,14 @@ todas as saídas do módulo com as saídas corretas, e ao final retorna o númer
 de erros, se houver. */
 module DecoderUINSN_auipc_TB ();
 
-reg [31:0] INSN; // reg que contém a instrução
+reg [31:0] insn; // reg que contém a instrução
 
 // regs que contém os valores corretos de todas as saídas do módulo
 reg sub_sra_c, addr_sel_c, pc_next_sel_c, pc_alu_sel_c;
 reg rd_clk_c, mem_clk_c;
 
 // net que contém o sinal de Clock proveniente do gerador
-wire CLK;
+wire clk;
 
 // nets contendo as saídas do módulo em teste
 wire sub_sra, addr_sel, pc_next_sel, pc_alu_sel;
@@ -57,8 +57,8 @@ endtask
 
 // Unidade em teste, Decoder R
 DecoderUINSN_auipc UUT (
-  .INSN(INSN),
-  .CLK(CLK), 
+  .insn(insn),
+  .clk(clk), 
   .sub_sra(sub_sra), 
   .addr_sel(addr_sel), 
   .pc_next_sel(pc_next_sel), 
@@ -68,18 +68,18 @@ DecoderUINSN_auipc UUT (
 );
 
 // gerador de Clock
-ClockGen C0 (.CLK(CLK));
+ClockGen C0 (.clk(clk));
 
 initial begin
   errors = 0;
   // Instrução arbitrária: armazena soma do pc com o imediato no registrador destinho
-  INSN = 32'h12345117;
+  insn = 32'h12345117;
 
   sub_sra_c = 0;
   addr_sel_c = 0;
   pc_next_sel_c = 0;
   pc_alu_sel_c = 0;
-  rd_clk_c = CLK;
+  rd_clk_c = clk;
   mem_clk_c = 0;
   
   #10;

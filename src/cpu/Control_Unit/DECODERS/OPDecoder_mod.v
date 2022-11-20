@@ -42,31 +42,31 @@ O "algoritmo" de decodificação é descrito abaixo:
     Assim, como toda vez que um opcode "entra em grupo" os AND de saída dos OPCODE de outros grupos geram 0, temos que o único que gerará 1 será o AND de saída do OPCODE da instrução tipo I (CSR).
 */
 module OPDecoder (
-    input [31:0] INSN,
-    output [9:0] Code
+    input [31:0] insn,
+    output [9:0] code
 );
 wire WU0, WU1, WU2;
 
-    // AND de saída de cada instrução. gera 1 somente se o OPCODE de INSN for o da respectiva instrução.
-    and A0 (Code[0], WU0, WU1, ~INSN[4]); // 1101111 J
-    and A1 (Code[1], WU0, ~WU1, ~INSN[4]); // 1100111 I JARL
-    and A2 (Code[2], WU0, WU1, INSN[4]); // 0110111 U LUI 
-    and A3 (Code[3], WU0, ~WU1, INSN[4]); // 0010111 U AUIPC
-    and A4 (Code[4], ~WU0, ~WU1, ~INSN[4], WU2); // 1100011 B
-    and A5 (Code[5], ~WU0, WU1, INSN[4]); // 0110011 R
-    and A6 (Code[6], ~WU0, WU1, ~INSN[4]); // 0100011 S
-    and A7 (Code[7], ~WU0, ~WU1, INSN[4], ~WU2); // 0010011 I ALU
-    and A8 (Code[8], ~WU0, ~WU1, ~INSN[4], ~WU2); // 0000011 I LOAD
-    and A9 (Code[9], ~WU0, ~WU1, INSN[4], WU2); // 1110011 I CSR
+    // AND de saída de cada instrução. gera 1 somente se o OPCODE de insn for o da respectiva instrução.
+    and A0 (code[0], WU0, WU1, ~insn[4]); // 1101111 J
+    and A1 (code[1], WU0, ~WU1, ~insn[4]); // 1100111 I JARL
+    and A2 (code[2], WU0, WU1, insn[4]); // 0110111 U LUI 
+    and A3 (code[3], WU0, ~WU1, insn[4]); // 0010111 U AUIPC
+    and A4 (code[4], ~WU0, ~WU1, ~insn[4], WU2); // 1100011 B
+    and A5 (code[5], ~WU0, WU1, insn[4]); // 0110011 R
+    and A6 (code[6], ~WU0, WU1, ~insn[4]); // 0100011 S
+    and A7 (code[7], ~WU0, ~WU1, insn[4], ~WU2); // 0010011 I ALU
+    and A8 (code[8], ~WU0, ~WU1, ~insn[4], ~WU2); // 0000011 I LOAD
+    and A9 (code[9], ~WU0, ~WU1, insn[4], WU2); // 1110011 I CSR
 
-    //Unidade 0. AND dos 3 LSB de INSN
-    and U0 (WU0, INSN[0], INSN[1], INSN[2]);
+    //Unidade 0. AND dos 3 LSB de insn
+    and U0 (WU0, insn[0], insn[1], insn[2]);
 
-    //Unidade 1. Xor dos bits 6,5 e 3 do INSN
-    xor U1 (WU1, INSN[6], INSN[5], INSN[3]);
+    //Unidade 1. Xor dos bits 6,5 e 3 do insn
+    xor U1 (WU1, insn[6], insn[5], insn[3]);
 
-    //Unidade 2. And dos bits 6 e 5 do INSN
-    and U2 (WU2, INSN[6], INSN[5]);
+    //Unidade 2. And dos bits 6 e 5 do insn
+    and U2 (WU2, insn[6], insn[5]);
 
 endmodule
             

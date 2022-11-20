@@ -1,4 +1,4 @@
-/* Módulo responsável por gerar o sinal alu_sel_A a partir do código CODE
+/* Módulo responsável por gerar o sinal alu_sel_a a partir do código code
 Code = 10'b0000000001, gera sinal: 1 // Instrução tipo J 
 Code = 10'b0000000010, gera sinal: 0 // Instrução tipo I (Jarl)
 Code = 10'b0000000100, gera sinal: x // Instrução tipo U (LUI)
@@ -23,11 +23,11 @@ Tabela verdade do circuito (função em mintermos com A sendo msb e J lsb):
     0100000000  0 
     1000000000  x
 Função = (~A&~B&~C&~D&~E&~F&~G&~H&~I&J)|(~A&~B&~C&~D&~E&~F&G&~H&~I&~J) */
-module ALUSelA (CODE, alu_sel_A);
-input [9:0] CODE;
-output alu_sel_A;
+module ALUSelA (code, alu_sel_a);
+input [9:0] code;
+output alu_sel_a;
 
     // Assign com expressão derivada da função
-    assign alu_sel_A = (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & ~CODE[3] & ~CODE[2] & ~CODE[1] & CODE[0]) | (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & CODE[3] & ~CODE[2] & ~CODE[1] & ~CODE[0]) ;
+    assign alu_sel_a = (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & ~code[3] & ~code[2] & ~code[1] & code[0]) | (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & code[3] & ~code[2] & ~code[1] & ~code[0]) ;
 
 endmodule

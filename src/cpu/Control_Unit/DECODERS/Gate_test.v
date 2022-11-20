@@ -5,7 +5,7 @@ Se algum valor for diferente do esperado ("xpect"), mostra os valores na saída 
 Ao final, mostra a quantidade total de erros obtidos */
 module Gate_TB ();
 
-reg [9:0] Code, Dec_Data;
+reg [9:0] code, Dec_Data;
 wire S;
 reg correctS;
 
@@ -20,17 +20,17 @@ task Check;
 endtask
 
 // módulo testado
-Gate UUT (.Code(Code), .Dec_Data(Dec_Data), .S(S));
+Gate UUT (.code(code), .Dec_Data(Dec_Data), .S(S));
 
 initial begin
   errors = 0;
-  Code = {9'b0, 1'b1};
+  code = {9'b0, 1'b1};
   Dec_Data = 10'b0100100101;
 
   correctS = 1;
   #10
   Check(correctS);
-  Code = {8'b0, 1'b1, 1'b0};
+  code = {8'b0, 1'b1, 1'b0};
   Dec_Data = 10'b0100100101;
 
   correctS = 0;

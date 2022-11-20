@@ -1,10 +1,10 @@
 `timescale 1ns / 100ps
-module INSNDecoderClks_TB ();
-  reg [31:0] INSN;
-  reg [9:0] Code;
+module INSNDecoderclks_TB ();
+  reg [31:0] insn;
+  reg [9:0] code;
   reg EQ, LS, LU;
 
-  wire CLK;
+  wire clk;
 
   wire addr_sel, pc_next_sel, sub_sra, pc_alu_sel, rd_clk, mem_clk;
 
@@ -47,21 +47,21 @@ task Check;
 endtask
 
 
-  INSNDecoderClks UUT (.INSN(INSN), .Code(Code), .CLK(CLK), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_alu_sel(pc_alu_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .rd_clk(rd_clk), .mem_clk(mem_clk));
+  INSNDecoderclks UUT (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_alu_sel(pc_alu_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .rd_clk(rd_clk), .mem_clk(mem_clk));
 
-  ClockGen C0 (.CLK(CLK));
+  ClockGen C0 (.clk(clk));
 
   initial begin
     
     errors = 0;
     // Instrução arbitrária: compara registrador x5 e x4, e caso sejam iguais avança o pc em 8.
-    INSN = 32'h00520463;
-    Code = 10'b0000010000;
+    insn = 32'h00520463;
+    code = 10'b0000010000;
     // para efeito de testes, consideraremos x5 e x4 igual
     sub_sra_correct = 1;
     addr_sel_correct = 0;
     pc_next_sel_correct = 0;
-    pc_alu_sel_correct = ~CLK;
+    pc_alu_sel_correct = ~clk;
     rd_clk_correct = 0;
     mem_clk_correct = 0;
 

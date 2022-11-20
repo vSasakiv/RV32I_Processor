@@ -1,4 +1,4 @@
-/* Módulo responsável por gerar o sinal rd_sel a partir do código CODE:
+/* Módulo responsável por gerar o sinal rd_sel a partir do código code:
 Code = 10'b0000000001, gera sinal: 11 // Instrução tipo J 
 Code = 10'b0000000010, gera sinal: 11 // Instrução tipo I (Jarl)
 Code = 10'b0000000100, gera sinal: 01 // Instrução tipo U (LUI)
@@ -26,11 +26,11 @@ Função (output direita) = (~A&~B&~C&~D&~E&~F&~G&~H&~I&J) | (~A&~B&~C&~D&~E&~F&
 Função (output esquerda) = (A|B|C|D|E|F|G|~H|I|J) & (A|~B|C|D|E|F|G|H|I|J)
 */
 
-module RdSel (CODE, rd_sel);
-input [9:0] CODE;
+module RdSel (code, rd_sel);
+input [9:0] code;
 output [1:0] rd_sel;
 
     // Assign com expressão derivada das expressões
-    assign rd_sel[1] = (CODE[9]|~CODE[8]|CODE[7]|CODE[6]|CODE[5]|CODE[4]|CODE[3]|CODE[2]|CODE[1]|CODE[0]) & (CODE[9]|CODE[8]|CODE[7]|CODE[6]|CODE[5]|CODE[4]|CODE[3]|~CODE[2]|CODE[1]|CODE[0]);
-    assign rd_sel[0] = (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & ~CODE[3] & ~CODE[2] & ~CODE[1] & CODE[0]) | (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & ~CODE[3] & ~CODE[2] & CODE[1] & ~CODE[0]) | (~CODE[9] & ~CODE[8] & ~CODE[7] & ~CODE[6] & ~CODE[5] & ~CODE[4] & ~CODE[3] & CODE[2] & ~CODE[1] & ~CODE[0]);
+    assign rd_sel[1] = (code[9]|~code[8]|code[7]|code[6]|code[5]|code[4]|code[3]|code[2]|code[1]|code[0]) & (code[9]|code[8]|code[7]|code[6]|code[5]|code[4]|code[3]|~code[2]|code[1]|code[0]);
+    assign rd_sel[0] = (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & ~code[3] & ~code[2] & ~code[1] & code[0]) | (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & ~code[3] & ~code[2] & code[1] & ~code[0]) | (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & ~code[3] & code[2] & ~code[1] & ~code[0]);
 endmodule
