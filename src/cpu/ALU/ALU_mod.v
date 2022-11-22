@@ -5,13 +5,13 @@ de circuitos combinatórios aritméticos e comparadores
 */
 module ALU (
   input wire [31:0] A, B, // Entradas A e B da ALU, sendo A o primeiro operando e B o segundo
-  input wire [2:0] FUNC, // Entrada seletora de FUNC proveniente da C.U.
+  input wire [2:0] func, // Entrada seletora de func proveniente da C.U.
   input wire sub_sra, // Entrada que ativa / desativa subtração e shift aritmético
-  output reg [31:0] S, // Saída, que é selecionada pela entrada FUNC
+  output reg [31:0] alu_val, // Saída, que é selecionada pela entrada func
   output wire EQ, LU, LS // Saídas de comparador, são sempre expostas para a C.U.
 );
   
-  wire [31:0] ADD, bXOR, bAND, bOR, SR, SL; // Guardam valores de possíveis operações que podem ser selecionados pelo FUNC
+  wire [31:0] ADD, bXOR, bAND, bOR, SR, SL; // Guardam valores de possíveis operações que podem ser selecionados pelo func
   wire COUT; // Fio que contém o carry out da soma / subtração
   
   Adder32b A0 (.A(A), .B(B), .S(ADD), .SUB(sub_sra), .COUT(COUT)); // Módulo de soma
@@ -26,15 +26,15 @@ module ALU (
   // Bloco always para síntese de multiplexador para selecionar as saídas
   always @(*) begin
     // Case baseado nas instruções presentes na ISA, para poupar o máximo da C.U.
-    case (FUNC)
-      3'b000: S = ADD;
-      3'b001: S = SL;
-      3'b010: S = LS;
-      3'b011: S = LU;
-      3'b100: S = bXOR;
-      3'b101: S = SR;
-      3'b110: S = bOR;
-      3'b111: S = bAND;
+    case (func)
+      3'b000: alu_val = ADD;
+      3'b001: alu_val = SL;
+      3'b010: alu_val = LS;
+      3'b011: alu_val = LU;
+      3'b100: alu_val = bXOR;
+      3'b101: alu_val = SR;
+      3'b110: alu_val = bOR;
+      3'b111: alu_val = bAND;
     endcase
   end
 
