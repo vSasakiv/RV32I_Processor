@@ -51,7 +51,7 @@ module dataflow (
 
   mux2to1 ALUBSEL (.select(alu_sel_b), .I0(rs2_val), .I1(imm), .data_o(alu_val_b));
 
-  ALU ALU0 (.A(alu_val_a), .B(alu_val_b), .func(func), .sub_sra(sub_sra), .S(alu_val), .EQ(EQ), .LS(LS), .LU(LU));
+  ALU ALU0 (.A(alu_val_a), .B(alu_val_b), .func(func), .sub_sra(sub_sra), .alu_val(alu_val), .EQ(EQ), .LS(LS), .LU(LU));
 
   mux2to1 ADDRSEL (.select(addr_sel), .I0(pc), .I1(alu_val), .data_o(addr));
 
