@@ -5,8 +5,8 @@ module CU (
   output rd_clk, mem_clk,
   output alu_sel_a, alu_sel_b,
   output pc_clk, insn_clk,
-  output [1:0] mem_sz,
-  output [2:0] mem_sx,
+  output [1:0] mem_size,
+  output [2:0] mem_extend,
   output [2:0] func,
   output [1:0] rd_sel,
   output [4:0] rs1, rs2, rd
@@ -26,8 +26,8 @@ module CU (
   assign rs1 = insn[19:15];
   assign rs2 = insn[24:20];
   assign rd = insn[11:7];
-  assign mem_sx = insn[14:12];
-  assign mem_sz = insn[13:12];
+  assign mem_extend = insn[14:12];
+  assign mem_size = insn[13:12];
   assign insn_clk = ~clk;
   assign pc_clk = clk;
 
