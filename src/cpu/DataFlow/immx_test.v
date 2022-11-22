@@ -1,6 +1,6 @@
 `timescale 1 ns / 100 ps
 
-module immxTB ();
+module immx_TB ();
     wire [31:0] imm;
     reg [31:0] insn;
     reg [6:0] opcodes [0:8];

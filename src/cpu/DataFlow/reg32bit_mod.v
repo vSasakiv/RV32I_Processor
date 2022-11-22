@@ -1,16 +1,16 @@
 module reg32bit (
     input clk,
     input rs_i,
-    input [31:0] din,
-    output reg [31:0] dout
+    input [31:0] data_i,
+    output reg [31:0] data_o
 );
     
     always @(posedge clk) begin
       if (rs_i) begin
-        dout <= 32'h00000000;
+        data_o <= 32'h00000000;
       end
       else begin
-        dout <= din;
+        data_o <= data_i;
       end
     end
 

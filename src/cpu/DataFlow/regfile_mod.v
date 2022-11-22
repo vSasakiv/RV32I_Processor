@@ -2,11 +2,11 @@ module regfile (
     input clk,
     input rs_i,
     input [4:0] rd,
-    input [4:0] ra,
-    input [4:0] rb,
+    input [4:0] rs1,
+    input [4:0] rs2,
     input [31:0] rd_in,
-    output [31:0] ra_out,
-    output [31:0] rb_out
+    output [31:0] rs1_out,
+    output [31:0] rs2_out
 );
 
 reg [31:0] r1;
@@ -41,8 +41,8 @@ reg [31:0] r29;
 reg [31:0] r30;
 reg [31:0] r31;
 
-reg [31:0] ra_out_value;
-reg [31:0] rb_out_value;
+reg [31:0] rs1_out_value;
+reg [31:0] rs2_out_value;
 
 
 always @(posedge clk) begin
@@ -116,81 +116,81 @@ end
 
 always @(*) begin
     begin
-        case (ra)
-            5'd0: ra_out_value = 32'h00000000;
-            5'd1: ra_out_value = r1;
-            5'd2: ra_out_value = r2;
-            5'd3: ra_out_value = r3;
-            5'd4: ra_out_value = r4;
-            5'd5: ra_out_value = r5;
-            5'd6: ra_out_value = r6;
-            5'd7: ra_out_value = r7;
-            5'd8: ra_out_value = r8;
-            5'd9: ra_out_value = r9;
-            5'd10: ra_out_value = r10;
-            5'd11: ra_out_value = r11;
-            5'd12: ra_out_value = r12;
-            5'd13: ra_out_value = r13;
-            5'd14: ra_out_value = r14;
-            5'd15: ra_out_value = r15;
-            5'd16: ra_out_value = r16;
-            5'd17: ra_out_value = r17;
-            5'd18: ra_out_value = r18;
-            5'd19: ra_out_value = r19;
-            5'd20: ra_out_value = r20;
-            5'd21: ra_out_value = r21;
-            5'd22: ra_out_value = r22;
-            5'd23: ra_out_value = r23;
-            5'd24: ra_out_value = r24;
-            5'd25: ra_out_value = r25;
-            5'd26: ra_out_value = r26;
-            5'd27: ra_out_value = r27;
-            5'd28: ra_out_value = r28;
-            5'd29: ra_out_value = r29;
-            5'd30: ra_out_value = r30;
-            5'd31: ra_out_value = r31;
-            default: ra_out_value = 32'hxxxxxxxx;
+        case (rs1)
+            5'd0: rs1_out_value = 32'h00000000;
+            5'd1: rs1_out_value = r1;
+            5'd2: rs1_out_value = r2;
+            5'd3: rs1_out_value = r3;
+            5'd4: rs1_out_value = r4;
+            5'd5: rs1_out_value = r5;
+            5'd6: rs1_out_value = r6;
+            5'd7: rs1_out_value = r7;
+            5'd8: rs1_out_value = r8;
+            5'd9: rs1_out_value = r9;
+            5'd10: rs1_out_value = r10;
+            5'd11: rs1_out_value = r11;
+            5'd12: rs1_out_value = r12;
+            5'd13: rs1_out_value = r13;
+            5'd14: rs1_out_value = r14;
+            5'd15: rs1_out_value = r15;
+            5'd16: rs1_out_value = r16;
+            5'd17: rs1_out_value = r17;
+            5'd18: rs1_out_value = r18;
+            5'd19: rs1_out_value = r19;
+            5'd20: rs1_out_value = r20;
+            5'd21: rs1_out_value = r21;
+            5'd22: rs1_out_value = r22;
+            5'd23: rs1_out_value = r23;
+            5'd24: rs1_out_value = r24;
+            5'd25: rs1_out_value = r25;
+            5'd26: rs1_out_value = r26;
+            5'd27: rs1_out_value = r27;
+            5'd28: rs1_out_value = r28;
+            5'd29: rs1_out_value = r29;
+            5'd30: rs1_out_value = r30;
+            5'd31: rs1_out_value = r31;
+            default: rs1_out_value = 32'hxxxxxxxx;
         endcase
     end
     begin
-        case (rb)
-            5'd0: rb_out_value = 32'h00000000;
-            5'd1: rb_out_value = r1;
-            5'd2: rb_out_value = r2;
-            5'd3: rb_out_value = r3;
-            5'd4: rb_out_value = r4;
-            5'd5: rb_out_value = r5;
-            5'd6: rb_out_value = r6;
-            5'd7: rb_out_value = r7;
-            5'd8: rb_out_value = r8;
-            5'd9: rb_out_value = r9;
-            5'd10: rb_out_value = r10;
-            5'd11: rb_out_value = r11;
-            5'd12: rb_out_value = r12;
-            5'd13: rb_out_value = r13;
-            5'd14: rb_out_value = r14;
-            5'd15: rb_out_value = r15;
-            5'd16: rb_out_value = r16;
-            5'd17: rb_out_value = r17;
-            5'd18: rb_out_value = r18;
-            5'd19: rb_out_value = r19;
-            5'd20: rb_out_value = r20;
-            5'd21: rb_out_value = r21;
-            5'd22: rb_out_value = r22;
-            5'd23: rb_out_value = r23;
-            5'd24: rb_out_value = r24;
-            5'd25: rb_out_value = r25;
-            5'd26: rb_out_value = r26;
-            5'd27: rb_out_value = r27;
-            5'd28: rb_out_value = r28;
-            5'd29: rb_out_value = r29;
-            5'd30: rb_out_value = r30;
-            5'd31: rb_out_value = r31;
-            default: ra_out_value = 32'hxxxxxxxx;
+        case (rs2)
+            5'd0: rs2_out_value = 32'h00000000;
+            5'd1: rs2_out_value = r1;
+            5'd2: rs2_out_value = r2;
+            5'd3: rs2_out_value = r3;
+            5'd4: rs2_out_value = r4;
+            5'd5: rs2_out_value = r5;
+            5'd6: rs2_out_value = r6;
+            5'd7: rs2_out_value = r7;
+            5'd8: rs2_out_value = r8;
+            5'd9: rs2_out_value = r9;
+            5'd10: rs2_out_value = r10;
+            5'd11: rs2_out_value = r11;
+            5'd12: rs2_out_value = r12;
+            5'd13: rs2_out_value = r13;
+            5'd14: rs2_out_value = r14;
+            5'd15: rs2_out_value = r15;
+            5'd16: rs2_out_value = r16;
+            5'd17: rs2_out_value = r17;
+            5'd18: rs2_out_value = r18;
+            5'd19: rs2_out_value = r19;
+            5'd20: rs2_out_value = r20;
+            5'd21: rs2_out_value = r21;
+            5'd22: rs2_out_value = r22;
+            5'd23: rs2_out_value = r23;
+            5'd24: rs2_out_value = r24;
+            5'd25: rs2_out_value = r25;
+            5'd26: rs2_out_value = r26;
+            5'd27: rs2_out_value = r27;
+            5'd28: rs2_out_value = r28;
+            5'd29: rs2_out_value = r29;
+            5'd30: rs2_out_value = r30;
+            5'd31: rs2_out_value = r31;
+            default: rs1_out_value = 32'hxxxxxxxx;
         endcase
     end
 end
-assign ra_out = ra_out_value;
-assign rb_out = rb_out_value;
+assign rs1_out = rs1_out_value;
+assign rs2_out = rs2_out_value;
 
 endmodule
