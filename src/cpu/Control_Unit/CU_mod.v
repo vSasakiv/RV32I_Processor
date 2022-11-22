@@ -17,7 +17,7 @@ module CU (
   wire [9:0] code;
   OPDecoder OPD0 (.insn(insn), .code(code));
 
-  insnDecoderclks IDC0 (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .pc_alu_sel(pc_alu_sel), .rd_clk(rd_clk), .mem_clk(mem_clk));
+  INSNDecoderclks IDC0 (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .pc_alu_sel(pc_alu_sel), .rd_clk(rd_clk), .mem_clk(mem_clk));
   ALUSelA ASA0 (.code(code), .alu_sel_a(alu_sel_a));
   ALUSelB ASB0 (.code(code), .alu_sel_b(alu_sel_b));
   funcMux F3M0 (.code(code), .insn(insn[14:12]), .func(func));
