@@ -1,7 +1,7 @@
 /* Módulo que contém a junção de todos os módulos característicos do dataflow */
 module dataflow (
   input sub_sra, // sub sra alu
-  input insn_clk, pc_clk, rd_clk,// clock para reg de instruções
+  input insn_clk, pc_clk, rd_clk, // Sinais de clock gerados na CU
   input reset, // reset
   input pc_next_sel, // seletor pc next
   input pc_alu_sel, // seletor pc alu
