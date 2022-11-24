@@ -5,6 +5,7 @@ module CU (
   output rd_clk, mem_clk,
   output alu_sel_a, alu_sel_b,
   output pc_clk, insn_clk,
+  output [31:0] imm,
   output [1:0] mem_size,
   output [2:0] mem_extend,
   output [2:0] func,
@@ -17,6 +18,7 @@ module CU (
   wire [9:0] code;
   OPDecoder OPD0 (.insn(insn), .code(code));
 
+  immx IMMX0 (.insn(insn), .imm(imm), .code(code));
   INSNDecoderclks IDC0 (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .pc_alu_sel(pc_alu_sel), .rd_clk(rd_clk), .mem_clk(mem_clk));
   ALUSelA ASA0 (.code(code), .alu_sel_a(alu_sel_a));
   ALUSelB ASB0 (.code(code), .alu_sel_b(alu_sel_b));

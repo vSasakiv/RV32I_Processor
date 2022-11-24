@@ -80,7 +80,7 @@ initial begin
     Check (correctBSel);
 
     //  I CSR
-    correctBSel = 1'bx;
+    correctBSel = 1'b1;
     code = 10'b1000000000;
     #10
     Check (correctBSel);

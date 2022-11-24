@@ -21,7 +21,7 @@ Tabela verdade do circuito (função em maxtermos com A sendo msb e J lsb):
     0001000000  1
     0010000000  1
     0100000000  1 
-    1000000000  x
+    1000000000  1
 Função = (A|B|C|D|~E|F|G|H|I|J) & (A|B|C|D|E|~F|G|H|I|J)
 */
 module ALUSelB (code, alu_sel_b);
