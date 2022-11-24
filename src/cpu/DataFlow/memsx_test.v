@@ -1,12 +1,15 @@
+/* Testbench para o módulo memory extender. São sorteados aleatóriamente os valores da memória 
+e o tamanho da extensão, são expostos, juntamente com a saída do módulo ao terminal por meio
+do $monitor */
 `timescale 1 ns / 100 ps
 
 module memsx_TB ();
-    wire [31:0] mem_extend;
-    reg [31:0] mem_value;
-    reg [2:0] mem_size;
+    wire [31:0] mem_extend; // resultado de saída do módulo
+    reg [31:0] mem_value; // valor da memória
+    reg [2:0] mem_size; // tamanho da extensão
 
     integer i;
-
+    // módulo em teste: memory extender
     memsx UUT (.mem_size(mem_size), .mem_value(mem_value), .mem_extend(mem_extend));
 
     initial begin
