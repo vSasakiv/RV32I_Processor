@@ -9,7 +9,7 @@ module dataflow (
   input addr_sel, // seletor de endereço para memória RAM
   input [1:0] rd_sel, // seletor mux para RD
   input [2:0] func, mem_size, // func e memory extension size
-  input [4:0] rs1, rs2, rd, // seletores de registradores de entrada e saída 
+  input [4:0] rs1, rs2, rd, // endereços dos registradores de entrada e saída 
   input [31:0] data_o, // saída da memória
   input [31:0] imm, // valor do imediato
   output [31:0] addr, // endereço para acesso de memória RAM
