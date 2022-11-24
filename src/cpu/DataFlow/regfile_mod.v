@@ -1,14 +1,18 @@
+/* Módulo que descreve a regfile do processador. Contém 32 registradores de 32 bits
+uma entrada para gravar nos registradores, e duas saídas, além de reset síncrono */
 module regfile (
-    input clk,
-    input rs_i,
-    input [4:0] rd,
-    input [4:0] rs1,
-    input [4:0] rs2,
-    input [31:0] rd_in,
-    output [31:0] rs1_out,
-    output [31:0] rs2_out
+    input clk, // sinal de clock
+    input rs_i, // sinal de reset síncrono
+    input [4:0] rd, // seletor do registrador destino (a ser gravado)
+    input [4:0] rs1, // seletor da saída 1
+    input [4:0] rs2, // seletor da saída 2
+    input [31:0] rd_in, // valor de entrada ao registrador destino
+    output [31:0] rs1_out, // valor de saída 1
+    output [31:0] rs2_out // valor de saída 2
 );
 
+// Declaração de todos os 32 registradores (note a falta de r0, isto é porque de acordo
+// com a documentação do riscv, este "registrador" sempre é 0, e não é possível modifcar o seu valor.)
 reg [31:0] r1;
 reg [31:0] r2;
 reg [31:0] r3;
@@ -41,11 +45,14 @@ reg [31:0] r29;
 reg [31:0] r30;
 reg [31:0] r31;
 
+// e das duas saídas
 reg [31:0] rs1_out_value;
 reg [31:0] rs2_out_value;
 
 
 always @(posedge clk) begin
+    // a cada borda de block devemos verificar se o reset esta ativado,
+    // caso esteja, basta zerar todos os registradores
     if (rs_i) begin
       r1 <= 32'h00000000;
       r2 <= 32'h00000000;
@@ -79,6 +86,8 @@ always @(posedge clk) begin
       r30 <= 32'h00000000;
       r31 <= 32'h00000000;
     end
+    // caso não esteja, devemos selecionar o registrador destino e atribuir
+    // o valor de entrada à ele.
     else begin
       if (rd == 5'd1) r1 <= rd_in;
       if (rd == 5'd2) r2 <= rd_in;
@@ -115,6 +124,8 @@ always @(posedge clk) begin
 end
 
 always @(*) begin
+    // por fim, caso algum valor mude, devemos sempre reatribuir às saídas o valor
+    // do registrador selecionado atualmente.
     begin
         case (rs1)
             5'd0: rs1_out_value = 32'h00000000;
