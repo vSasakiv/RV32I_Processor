@@ -9,7 +9,7 @@ module mux4to1_TB ();
     reg [31:0] I0, I1, I2, I3; // entradas do multiplexador
     integer i, j;
 
-    // módulo em teste: multiplexaxdor 4 entradas
+    // módulo em teste: multiplexador 4 entradas
     mux4to1 UUT (.select(select), .I0(I0), .I1(I1), .I2(I2), .I3(I3), .data_o(data_o));
 
     initial begin
