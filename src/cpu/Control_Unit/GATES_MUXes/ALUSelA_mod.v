@@ -8,7 +8,7 @@ code = 10'b0000100000, gera sinal: 0 // Instrução tipo R
 code = 10'b0001000000, gera sinal: 0 // Instrução tipo S
 code = 10'b0010000000, gera sinal: 0 // Instrução tipo I (ALU)
 code = 10'b0100000000, gera sinal: 0 // Instrução tipo I (LOAD)
-code = 10'b1000000000, gera sinal: x // Instrução tipo I (CSR)
+code = 10'b1000000000, gera sinal: 1 // Instrução tipo I (CSR)
 
 Tabela verdade do circuito (função em mintermos com A sendo msb e J lsb):
 
@@ -22,6 +22,7 @@ Tabela verdade do circuito (função em mintermos com A sendo msb e J lsb):
     0010000000  0
     0100000000  0 
     1000000000  1 (A&~B&~C&~D&~E&~F&~G&~H&~I&~J) 
+
 Função = (~A&~B&~C&~D&~E&~F&~G&~H&~I&J)|(~A&~B&~C&~D&~E&~F&G&~H&~I&~J) | (A&~B&~C&~D&~E&~F&~G&~H&~I&~J) */
 module ALUSelA (code, alu_sel_a);
 input [9:0] code;

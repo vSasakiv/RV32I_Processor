@@ -1,19 +1,16 @@
 /* 
 Módulo para decodificação de instruções do tipo B branches com instruções de acordo com
 o ISA do risc-v. O módulo recebe a instrução e o sinal de clock
-do processador, e retorna todas as saídas relevantes e não relevantes
-para serem enviadas ao circuito
+do processador, e retorna todas as saídas relevantes para serem enviadas ao circuito
 */
 module DecoderBINSN (
   input wire [31:0] insn, // instrução de 32 bits
   input wire clk,
   input wire EQ, LS, LU, // entradas de comparação  
-  output reg pc_alu_sel
-  // controle de adição/subtração controle de escolha de endereço, program counter,
-  //e entrada da ALU do program counter
+  output reg pc_alu_sel // Sinal que seleciona se qual incremeto será dado ao PC
 );
-  wire [2:0] func;
-  assign func = insn[14:12]; // net func para auxiliar na legibilidade do código
+  wire [2:0] func; // net func para auxiliar na legibilidade do código
+  assign func = insn[14:12]; 
 
   always @(insn, EQ, LS, LU) begin
     // realizamos as comparações, e baseado no opcode, ou a alu do pc recebe 4 normalmente e não realiza um branch, ou recebe o valor imediato e avança/retorna para algum endereço

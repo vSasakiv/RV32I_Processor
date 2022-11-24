@@ -8,7 +8,7 @@ Code = 10'b0000100000, gera sinal: 0 // Instrução tipo R
 Code = 10'b0001000000, gera sinal: 1 // Instrução tipo S
 Code = 10'b0010000000, gera sinal: 1 // Instrução tipo I (ALU)
 Code = 10'b0100000000, gera sinal: 1 // Instrução tipo I (LOAD)
-Code = 10'b1000000000, gera sinal: x // Instrução tipo I (CSR)
+Code = 10'b1000000000, gera sinal: 1 // Instrução tipo I (CSR)
 
 Tabela verdade do circuito (função em maxtermos com A sendo msb e J lsb):
 

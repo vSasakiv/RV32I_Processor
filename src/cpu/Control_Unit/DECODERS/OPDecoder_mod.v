@@ -47,7 +47,7 @@ module OPDecoder (
 );
 wire WU0, WU1, WU2;
 
-    // AND de saída de cada instrução. gera 1 somente se o OPCODE de insn for o da respectiva instrução.
+    // AND de saída de cada instrução. Gera 1 somente se o OPCODE de insn for o da respectiva instrução.
     and A0 (code[0], WU0, WU1, ~insn[4]); // 1101111 J
     and A1 (code[1], WU0, ~WU1, ~insn[4]); // 1100111 I JARL
     and A2 (code[2], WU0, WU1, insn[4]); // 0110111 U LUI 

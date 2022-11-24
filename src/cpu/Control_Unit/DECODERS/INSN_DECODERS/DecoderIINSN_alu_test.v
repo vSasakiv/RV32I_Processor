@@ -1,13 +1,12 @@
 `timescale 1ns / 100ps
-/* 
-Testbench para teste do Decodificador de instruções do tipo I alu, que confere
+/* Testbench para teste do Decodificador de instruções do tipo I alu, que confere
 todas as saídas do módulo com as saídas corretas, e ao final retorna o número
 de erros, se houver. */
 module DecoderIINSN_alu_TB ();
 
 reg [31:0] insn; // reg que contém a instrução
 
-// reg que contém os valores correto da saída do módulo
+// reg que contém o valor correto da saída do módulo
 reg sub_sra_c;
 
 // net que contém o sinal de Clock proveniente do gerador
@@ -18,9 +17,7 @@ wire sub_sra;
 
 integer errors; // contador
 
-/* 
-Task verifica se o valor esperado é igual ao valor devolvido pelo módulo
-*/
+/* Task verifica se o valor esperado é igual ao valor devolvido pelo módulo */
 task Check;
   input sub_sra_x;
   begin
@@ -31,7 +28,7 @@ task Check;
   end
 endtask
 
-// Unidade em teste, Decoder I para alu
+// Unidade em teste: Decoder  de instruções do tipo I para alu
 DecoderIINSN_alu UUT (
   .insn(insn),
   .clk(clk), 
