@@ -1,5 +1,5 @@
 `timescale 1ns / 100ps
-module INSNDecoderclks_TB ();
+module INSNDecoderClks_TB ();
   reg [31:0] insn;
   reg [9:0] code;
   reg EQ, LS, LU;
@@ -25,7 +25,7 @@ task Check;
   end
   if (addr_sel_x !== addr_sel) begin
     $display("Error on addr_sel: %b, Expected: %b", addr_sel, addr_sel_x);
-    errors = errors+1;
+    errors = errors + 1;
   end
   if (pc_alu_sel_x !== pc_alu_sel) begin
     $display("Error on pc_alu_sel: %b, Expected: %b", pc_alu_sel, pc_alu_sel_x);
@@ -47,13 +47,14 @@ task Check;
 endtask
 
 
-  INSNDecoderclks UUT (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_alu_sel(pc_alu_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .rd_clk(rd_clk), .mem_clk(mem_clk));
+  INSNDecoderClks UUT (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_alu_sel(pc_alu_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .rd_clk(rd_clk), .mem_clk(mem_clk));
 
   ClockGen C0 (.clk(clk));
 
   initial begin
     
     errors = 0;
+    #10
     // Instrução arbitrária: compara registrador x5 e x4, e caso sejam iguais avança o pc em 8.
     insn = 32'h00520463;
     code = 10'b0000010000;
@@ -68,6 +69,7 @@ endtask
     EQ = 1'b1;
     LS = 1'bx;
     LU = 1'bx;
+    
     #10;
     Check( 
       sub_sra_correct, 
