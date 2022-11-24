@@ -1,5 +1,5 @@
 /* Testbench para o registrador de 32 bits. Sorteamos valores aleatórios para a entrada
-do registrador, e verificamos se o valor realmente foi armazenado e por fim ativamos o reset
+do registrador, verificamos se o valor realmente foi armazenado e por fim ativamos o reset
 e verificamos se o valor dele realmente está igual a 0 */
 `timescale 1 ns / 100 ps
 
