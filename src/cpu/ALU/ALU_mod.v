@@ -1,5 +1,5 @@
 /* 
-Modulo da Unidade Lógica Aritmética (ALU) do processador
+Módulo da Unidade Lógica Aritmética (ALU) do processador
 Este módulo contém uma conglomeração de todos os módulos
 de circuitos combinatórios aritméticos e comparadores
 */

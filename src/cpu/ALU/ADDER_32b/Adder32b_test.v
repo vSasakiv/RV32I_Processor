@@ -33,7 +33,7 @@ Adder32b UUT (.A(A), .B(B), .SUB(SUB), .S(S), .COUT(COUT));
 
 initial begin
     errors = 0;
-    SUB = 1; //Parametro para teste: 0 para fazer A + B, 1 para A + (-B)
+    SUB = 1; //Parâmetro para teste: 0 para fazer A + B, 1 para A + (-B)
 
     // Laços for que passam por todas as somas possíveis entre os números de 0 a 255
     for (i = 0; i < 256; i = i + 1)

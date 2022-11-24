@@ -19,7 +19,7 @@ task Check;
     end
 endtask
 
-// Unidade em teste: comparador de igualdade
+// Unidade em teste: comparador de desigualdade menor que
 ComparatorLTUnsigned UUT (.COUT(COUT), .EQ(EQ), .R(LESS));
 // Utilização do módulo de soma para obter a subtração
 Adder32b A1 (.A(A), .B(B), .S(S), .SUB(1), .COUT(COUT));

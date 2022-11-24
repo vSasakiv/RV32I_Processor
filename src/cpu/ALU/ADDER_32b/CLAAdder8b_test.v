@@ -1,6 +1,6 @@
 `timescale 1ns / 100ps
 
-/* Testbench que teste o módulo do somador Carry Look-Ahead de 8 bits.
+/* Testbench que testa o módulo do somador Carry Look-Ahead de 8 bits.
 Faz todas as somas possíves com os números de 0 a 255 e verifica se a soma S e o carry out COUT são iguais aos da saída do módulo.
 Se algum valor for diferente do esperado ("xpect"), mostra os valores na saída e aumenta a contagem do erros 
 Ao final, mostra a quantidade total de erros obtidos */
@@ -33,7 +33,7 @@ CLAAdder8b UUT (.A(A), .B(B), .CIN(CIN), .S(S), .COUT(COUT));
 
 initial begin 
     errors = 0;
-    CIN = 1; // Parametro para teste: 0 para fazer A + B com carry in igual a 0, 1 para fazer o mesmo com carry igual a 1
+    CIN = 1; // Parâmetro para teste: 0 para fazer A + B com carry in igual a 0; 1 para fazer o mesmo com carry igual a 1
 
     // Laços for que passam por todas as somas possíveis entre os números de 0 a 255 
     for (i = 0; i < 256; i = i + 1)

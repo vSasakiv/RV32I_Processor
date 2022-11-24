@@ -8,6 +8,6 @@ module ComparatorEQ (
 );
   
   assign EQ = ~(|S); // NOR de 32 entradas, realizada com cada um dos bits
-                     // Caso um único bit seja 1, a saída já será 0.
+// Caso um único bit seja 1, a saída já será 0.
 
 endmodule 

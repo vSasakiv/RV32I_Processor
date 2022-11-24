@@ -1,6 +1,6 @@
 /* Módulo do somador Carry Look-Ahead de 8bits.
 Recebe dois números de 8 bits, A e B e um carry in CIN e devolve a soma A + B no S, assim como o carry out dela no COUT.
-O somador carry look ahead calcula os carrys fazendo 
+O somador carry look ahead calcula os carries fazendo 
 Ci = Gi + Pi*Ci-1 
 sendo:
     Gi = Ai * Bi (generate, verifica se Ai e Bi geram um carry)

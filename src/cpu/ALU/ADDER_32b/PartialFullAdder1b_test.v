@@ -32,7 +32,7 @@ PartialFullAdder1b UUT (.A(A), .B(B), .CIN(CIN), .S(S), .P(P), .G(G));
 
 initial begin
     errors = 0;
-    CIN = 1; //Parametro para teste: 0 para fazer A + B com carry in igual a 0, 1 para fazer o mesmo com carry igual a 1
+    CIN = 1; //Parâmetro para teste: 0 para fazer A + B com carry in igual a 0, 1 para fazer o mesmo com carry igual a 1
    
     /* Laços for que passam por todas combinações possíveis de soma com números de 1bit */
     for (i = 0; i < 2; i = i + 1)

@@ -2,7 +2,7 @@
 Suas saídas são:
 S - Soma (A ^ B ^ CIN)
 P - Propagate, verifica se A e B propagam um carry. 1 caso propaga, 0 caso contrário. (A | N) 
-G - Generate, verifica se A e B geram um carry . 1 caso gere, 0 caso contrário (A & B) */
+G - Generate, verifica se A e B geram um carry. 1 caso gere, 0 caso contrário (A & B) */
 module PartialFullAdder1b (
     input A, B, CIN,
     output S, P, G

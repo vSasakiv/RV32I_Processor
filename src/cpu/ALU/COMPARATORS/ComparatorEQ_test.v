@@ -1,7 +1,7 @@
 `timescale 1ns / 100ps
 /* 
 Testbench para o comparador de igualdade, roda para todos as possíveis
-saída de uma subtração entre A e B, porém apenas todas de 16 bits,
+saídas de uma subtração entre A e B, porém apenas todas de 16 bits,
 já que todas as combinações de 32 bits não é viável
  */
 module ComparatorEQ_TB ();

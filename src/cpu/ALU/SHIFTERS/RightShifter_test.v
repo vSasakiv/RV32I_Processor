@@ -3,7 +3,7 @@
 Shifta um valor A para direita B = i vezes, com i = {0, 1, ... , 32}, e compara o resultado com a saida do módulo.
 Se algum valor for diferente do esperado ("xpect"), mostra os valores na saída e aumenta a contagem do erros.
 Ao final, mostra a quantidade total de erros obtidos */
-module RightShifter_tb ();
+module RightShifter_TB ();
 reg signed [31:0] A, B, correct;
 wire signed [31:0] C;
 integer errors, i;
