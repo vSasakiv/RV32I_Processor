@@ -20,7 +20,6 @@ module dataflow (
 
   wire [31:0] mem_extend; // saída do memory extender
   wire [31:0] insn; // instrução
-  wire [31:0] imm; // imediato feito de acordo com o opcode
   wire [31:0] alu_val; // saída da alu
   wire [31:0] pc; // net que contém o valor atual do program counter (PC)
   wire [31:0] pc_inc; // net que contém o valor do program counter somado com a entrada do alu_pc
