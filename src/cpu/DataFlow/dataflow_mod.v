@@ -10,6 +10,7 @@ module dataflow (
   input [2:0] func, mem_size, // func e memory extension size
   input [4:0] rs1, rs2, rd,
   input [31:0] data_o, // saida da memoria
+  input [31:0] imm, // Valor do imediato
   output [31:0] addr, // endereço
   output [31:0] insn_out,
   output [31:0] rs2_mem_i, // saida rs2
@@ -32,8 +33,6 @@ module dataflow (
   memsx M0 (.mem_value(data_o), .mem_extend(mem_extend), .mem_size(mem_size));
 
   reg32bit INSNreg (.clk(insn_clk), .rs_i(reset), .data_i(data_o), .data_o(insn));
-
-  immx IMMX0 (.insn(insn), .imm(imm));
 
   mux2to1 PCNEXTSEL (.select(pc_next_sel), .I0(pc_inc), .I1(alu_val), .data_o(pc_selected));
 
