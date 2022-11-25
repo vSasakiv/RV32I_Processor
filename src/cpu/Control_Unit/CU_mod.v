@@ -25,7 +25,7 @@ module CU (
 
   // Instanciação dos módulos 
   immx IMMX0 (.insn(insn), .imm(imm), .code(code)); // Gera o valor do imediato
-  INSNDecoderclks IDC0 (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .pc_alu_sel(pc_alu_sel), .rd_clk(rd_clk), .mem_clk(mem_clk)); // Gera alguns de clk, seletores e o sub_sra
+  INSNDecoderClks IDC0 (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .pc_alu_sel(pc_alu_sel), .rd_clk(rd_clk), .mem_clk(mem_clk)); // Gera alguns de clk, seletores e o sub_sra
   ALUSelA ASA0 (.code(code), .alu_sel_a(alu_sel_a)); // Gera os seletores da entrada A da ALU
   ALUSelB ASB0 (.code(code), .alu_sel_b(alu_sel_b)); //  Gera os seletores da entrada B da ALU
   funcMux F3M0 (.code(code), .insn(insn[14:12]), .func(func)); // Gera o sinal func
