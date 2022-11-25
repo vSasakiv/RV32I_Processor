@@ -8,7 +8,7 @@ module dataflow (
   input alu_sel_a, alu_sel_b, // seletor alu
   input addr_sel, // seletor de endereço para memória RAM
   input [1:0] rd_sel, // seletor mux para RD
-  input [2:0] func, mem_size, // func e memory extension size
+  input [2:0] func, mem_extend, // func e memory extension size
   input [4:0] rs1, rs2, rd, // endereços dos registradores de entrada e saída 
   input [31:0] data_o, // saída da memória
   input [31:0] imm, // valor do imediato
@@ -18,7 +18,7 @@ module dataflow (
   output EQ, LS, LU // saídas de comparação
 );
 
-  wire [31:0] mem_extend; // saída do memory extender
+  wire [31:0] mem_extended; // saída do memory extender
   wire [31:0] insn; // instrução
   wire [31:0] alu_val; // saída da alu
   wire [31:0] pc; // net que contém o valor atual do program counter (PC)
@@ -29,10 +29,12 @@ module dataflow (
   wire [31:0] rs1_val; // valor de saída rs1 do regfile
   wire [31:0] rs2_val; // valor de saída rs2 do regfile
   wire [31:0] alu_val_a, alu_val_b; // valores a e b na entrada da ALU principal
+
+
 // módulo memory extender, utilizado para corrigir o valor que será carregado a um registrador da Regfile de acordo com a instrução
-  memsx M0 (.mem_value(data_o), .mem_extend(mem_extend), .mem_size(mem_size));
+  memsx M0 (.mem_value(data_o), .mem_extended(mem_extended), .mem_extend(mem_extend));
   // registrador que contém as instruções sendo atualmente executadas
-  reg32bit INSNreg (.clk(insn_clk), .rs_i(reset), .data_i(data_o), .data_o(insn));
+  reg32bit INSNreg (.clk(insn_clk), .rs_i(reset), .data_i({data_o[7:0], data_o[15:8], data_o[23:16], data_o[31:24]}), .data_o(insn));
   // multiplexador para selecionar o próximo valor do PC
   mux2to1 PCNEXTSEL (.select(pc_next_sel), .I0(pc_inc), .I1(alu_val), .data_o(pc_selected));
   // registrador para o Program Counter (PC)
@@ -42,7 +44,7 @@ module dataflow (
   // multiplexador para seleção da segunda entrada da ALU do Program Counter
   mux2to1 PCALUSEL (.select(pc_alu_sel), .I0(32'h00000004), .I1(imm), .data_o(pc_alu_selected));
   // multiplexador para selecionar qual valor deverá ser gravado no registrador destino presente na Regfile
-  mux4to1 RDSEL (.select(rd_sel), .I0(mem_extend), .I1(imm), .I2(alu_val), .I3(pc_inc), .data_o(rd_val));
+  mux4to1 RDSEL (.select(rd_sel), .I0(mem_extended), .I1(imm), .I2(alu_val), .I3(pc_inc), .data_o(rd_val));
   // Regfile
   regfile REG (.clk(rd_clk), .rs_i(reset), .rd(rd), .rs1(rs1), .rs2(rs2), .rd_in(rd_val), .rs1_out(rs1_val), .rs2_out(rs2_val));
   // multiplexador para selecionar qual valor irá entrar na ALU geral, podendo ser o PC ou o valor do rs1
