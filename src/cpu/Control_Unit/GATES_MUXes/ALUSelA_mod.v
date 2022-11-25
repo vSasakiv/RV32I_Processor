@@ -8,7 +8,9 @@ code = 10'b0000100000, gera sinal: 0 // Instrução tipo R
 code = 10'b0001000000, gera sinal: 0 // Instrução tipo S
 code = 10'b0010000000, gera sinal: 0 // Instrução tipo I (ALU)
 code = 10'b0100000000, gera sinal: 0 // Instrução tipo I (LOAD)
-code = 10'b1000000000, gera sinal: 1 // Instrução tipo I (CSR)
+
+* code = 10'b1000000000, gera sinal: 1 ou 0 // Instrução tipo I (CSR)
+Para o último code, referente as instruções CSR, o valor de alu_sel_a deve ser 0 caso a instrução seja um ecall e 1 caso seja um ebreak
 
 Tabela verdade do circuito (função em mintermos com A sendo msb e J lsb):
 
@@ -21,14 +23,21 @@ Tabela verdade do circuito (função em mintermos com A sendo msb e J lsb):
     0001000000  0
     0010000000  0
     0100000000  0 
-    1000000000  1 (A&~B&~C&~D&~E&~F&~G&~H&~I&~J) 
 
-Função = (~A&~B&~C&~D&~E&~F&~G&~H&~I&J)|(~A&~B&~C&~D&~E&~F&G&~H&~I&~J) | (A&~B&~C&~D&~E&~F&~G&~H&~I&~J) */
-module ALUSelA (code, alu_sel_a);
+    * 1000000000  0 ou 1
+
+Função = (~A&~B&~C&~D&~E&~F&~G&~H&~I&J)|(~A&~B&~C&~D&~E&~F&G&~H&~I&~J) */
+module ALUSelA (code, alu_sel_a, insn);
 input [9:0] code;
+input [31:0] insn;
 output alu_sel_a;
+wire W1;
 
     // Assign com expressão derivada da função
-    assign alu_sel_a = (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & ~code[3] & ~code[2] & ~code[1] & code[0]) | (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & code[3] & ~code[2] & ~code[1] & ~code[0]) | (code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & ~code[3] & ~code[2] & ~code[1] & ~code[0]) ;
+    assign W1 = (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & ~code[3] & ~code[2] & ~code[1] & code[0]) | (~code[9] & ~code[8] & ~code[7] & ~code[6] & ~code[5] & ~code[4] & code[3] & ~code[2] & ~code[1] & ~code[0]) ;
+    
+    /* Se a função acima de devolveu 1, apenas passar o sinal
+    Caso contrário, devolver 0 para todos os codes != 1000000000 e 1 somente quando o bit 20 de insn for 1 (diferenciador entre ecall e ebreak) */
+    assign alu_sel_a = W1 | (code[9] & insn[20]);
 
 endmodule

@@ -6,25 +6,27 @@ Ao final, mostra a quantidade total de erros obtidos */
 module ALUSelA_TB ();
 reg [9:0] code;
 reg correctASel;
+reg [31:0] insn;
 wire alu_sel_a;
 integer errors;
 
 // task que verifica se a saída do módulo é igual ao valor esperado
 task Check;
     input xpectASel;
-    if (alu_sel_a != xpectASel) begin 
+    if (alu_sel_a !== xpectASel) begin 
         $display ("Error code: %10b, expected %b, got rd: %b", code, xpectASel, alu_sel_a);
         errors = errors + 1;
     end
 endtask
 
 // módulo testado
-ALUSelA UUT (.code(code), .alu_sel_a(alu_sel_a));
+ALUSelA UUT (.code(code), .alu_sel_a(alu_sel_a), .insn(insn));
 
 // Atribui todos os valores que code pode assumir, especifica o resultado correto em correctAsel e verifica se o módulo funciona para esse valor.
 initial begin
     errors = 0;
-
+    insn = 32'b0;
+    
     // J
     correctASel = 1;
     code = 10'b0000000001;
@@ -38,7 +40,7 @@ initial begin
     Check (correctASel);
 
     //  U LUI
-    correctASel = 1'bx;
+    correctASel = 1'b0;
     code = 10'b0000000100;
     #10
     Check (correctASel);
@@ -79,11 +81,22 @@ initial begin
     #10
     Check (correctASel);
 
-    //  I CSR
+    //  I CSR - ebreak
+    insn = 32'h00100073;
     correctASel = 1'b1;
     code = 10'b1000000000;
+
     #10
     Check (correctASel);
+
+    //  I CSR - ecall
+    insn = 32'h00000073;
+    correctASel = 1'b0;
+    code = 10'b1000000000;
+
+    #10
+    Check (correctASel);
+
 
     $display ("Finished, got %2d errors", errors);
 end
