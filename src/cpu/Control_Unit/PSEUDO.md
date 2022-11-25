@@ -1,4 +1,4 @@
-# Conjunto pseudocódigos para decodificação de instruções
+# Conjunto de pseudocódigos para decodificação de instruções
 
 ## Entradas
 

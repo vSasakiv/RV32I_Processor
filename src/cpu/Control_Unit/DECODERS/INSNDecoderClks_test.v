@@ -45,7 +45,7 @@ task Check;
   end
 endtask
 
-//Módulo testado
+// Módulo testado
 INSNDecoderClks UUT (.insn(insn), .code(code), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .addr_sel(addr_sel), .pc_alu_sel(pc_alu_sel), .pc_next_sel(pc_next_sel), .sub_sra(sub_sra), .rd_clk(rd_clk), .mem_clk(mem_clk));
 
 // Gerador de Clock
