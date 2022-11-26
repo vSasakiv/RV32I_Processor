@@ -34,6 +34,7 @@ module CPU_TB ();
     #500000;
     reset = 0;
     #15000000;
+    #15000000;
     $stop;
   end
 

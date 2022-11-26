@@ -29,14 +29,14 @@ reg [7:0] memory [0 : 65540]; // needs to be 32'hffffffff
     
     testeHeapsort -> Executa o teste de um arquivo em C testando funcionalidade
   de um heapsort
-   
+  
     testeInstrucoes -> Executa o teste de um arquivo que contém todas as instruções da ISA do 
   RISC-V 32I.
   */
 
 initial begin
-  $readmemh({"src/testes/","testeInstrucoes","/RAM.hex"}, memory);
-  $writememh("RAMOUT.hex", memory);
+  $readmemh({"testes/","testeHeapsort","/RAM.hex"}, memory);
+  
 end
 
 always @(posedge mem_clk) begin
@@ -53,6 +53,7 @@ always @(posedge mem_clk) begin
         memory[addr+2] <= data_i[23:16];
         memory[addr+3] <= data_i[31:24];
     end
+    $writememh("RAMOUT.hex", memory);
 end
 assign data_o = {memory[addr+3], memory[addr+2], memory[addr+1], memory[addr]};
     
