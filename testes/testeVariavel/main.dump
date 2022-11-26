@@ -1,0 +1,23 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main-0x4>:
+   0:	3e800113          	addi	x2,x0,1000
+
+00000004 <main>:
+   4:	fe010113          	addi	x2,x2,-32
+   8:	00812e23          	sw	x8,28(x2)
+   c:	02010413          	addi	x8,x2,32
+  10:	00100793          	addi	x15,x0,1
+  14:	fef42623          	sw	x15,-20(x8)
+  18:	fec42783          	lw	x15,-20(x8)
+  1c:	00178793          	addi	x15,x15,1
+  20:	fef42623          	sw	x15,-20(x8)
+  24:	00000793          	addi	x15,x0,0
+  28:	00078513          	addi	x10,x15,0
+  2c:	01c12403          	lw	x8,28(x2)
+  30:	02010113          	addi	x2,x2,32
+  34:	00008067          	jalr	x0,0(x1)

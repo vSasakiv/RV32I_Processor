@@ -1,0 +1,224 @@
+# vsim -c work.mux4to1_TB 
+# Start time: 19:10:03 on Nov 25,2022
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2021.2 win64 Apr 14 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.mux4to1_TB(fast)
+# Loading work.mux4to1(fast)
+# I0: 17750c26 I1: 9d0db966 I2: bcb9e3b6 I3: 510e08c6 data_o: 17750c26 select: 0
+# I0: 17750c26 I1: 9d0db966 I2: bcb9e3b6 I3: 510e08c6 data_o: 9d0db966 select: 1
+# I0: 17750c26 I1: 9d0db966 I2: bcb9e3b6 I3: 510e08c6 data_o: bcb9e3b6 select: 2
+# I0: 17750c26 I1: 9d0db966 I2: bcb9e3b6 I3: 510e08c6 data_o: 510e08c6 select: 3
+# I0: 83956e46 I1: 3bd10f72 I2: 769bf32e I3: fa374467 data_o: 83956e46 select: 0
+# I0: 83956e46 I1: 3bd10f72 I2: 769bf32e I3: fa374467 data_o: 3bd10f72 select: 1
+# I0: 83956e46 I1: 3bd10f72 I2: 769bf32e I3: fa374467 data_o: 769bf32e select: 2
+# I0: 83956e46 I1: 3bd10f72 I2: 769bf32e I3: fa374467 data_o: fa374467 select: 3
+# I0: 3386553a I1: 46f91c6a I2: 6b25d1b4 I3: 6116fa6f data_o: 3386553a select: 0
+# I0: 3386553a I1: 46f91c6a I2: 6b25d1b4 I3: 6116fa6f data_o: 46f91c6a select: 1
+# I0: 3386553a I1: 46f91c6a I2: 6b25d1b4 I3: 6116fa6f data_o: 6b25d1b4 select: 2
+# I0: 3386553a I1: 46f91c6a I2: 6b25d1b4 I3: 6116fa6f data_o: 6116fa6f select: 3
+# I0: d29b1a56 I1: 9c193635 I2: 10ed77d4 I3: 149f40ae data_o: d29b1a56 select: 0
+# I0: d29b1a56 I1: 9c193635 I2: 10ed77d4 I3: 149f40ae data_o: 9c193635 select: 1
+# I0: d29b1a56 I1: 9c193635 I2: 10ed77d4 I3: 149f40ae data_o: 10ed77d4 select: 2
+# I0: d29b1a56 I1: 9c193635 I2: 10ed77d4 I3: 149f40ae data_o: 149f40ae select: 3
+# I0: 38f1817d I1: 32ccb7db I2: a6ef0e05 I3: 54cd86e3 data_o: 38f1817d select: 0
+# I0: 38f1817d I1: 32ccb7db I2: a6ef0e05 I3: 54cd86e3 data_o: 32ccb7db select: 1
+# I0: 38f1817d I1: 32ccb7db I2: a6ef0e05 I3: 54cd86e3 data_o: a6ef0e05 select: 2
+# I0: 38f1817d I1: 32ccb7db I2: a6ef0e05 I3: 54cd86e3 data_o: 54cd86e3 select: 3
+# I0: 26008320 I1: 0ada65e5 I2: 7dfa7705 I3: 37378d25 data_o: 26008320 select: 0
+# I0: 26008320 I1: 0ada65e5 I2: 7dfa7705 I3: 37378d25 data_o: 0ada65e5 select: 1
+# I0: 26008320 I1: 0ada65e5 I2: 7dfa7705 I3: 37378d25 data_o: 7dfa7705 select: 2
+# I0: 26008320 I1: 0ada65e5 I2: 7dfa7705 I3: 37378d25 data_o: 37378d25 select: 3
+# I0: 61c71ee9 I1: b110245d I2: da329d8a I3: ba712158 data_o: 61c71ee9 select: 0
+# I0: 61c71ee9 I1: b110245d I2: da329d8a I3: ba712158 data_o: b110245d select: 1
+# I0: 61c71ee9 I1: b110245d I2: da329d8a I3: ba712158 data_o: da329d8a select: 2
+# I0: 61c71ee9 I1: b110245d I2: da329d8a I3: ba712158 data_o: ba712158 select: 3
+# I0: 9c02498b I1: 2b3fd156 I2: 45e393c9 I3: 136c72b9 data_o: 9c02498b select: 0
+# I0: 9c02498b I1: 2b3fd156 I2: 45e393c9 I3: 136c72b9 data_o: 2b3fd156 select: 1
+# I0: 9c02498b I1: 2b3fd156 I2: 45e393c9 I3: 136c72b9 data_o: 45e393c9 select: 2
+# I0: 9c02498b I1: 2b3fd156 I2: 45e393c9 I3: 136c72b9 data_o: 136c72b9 select: 3
+# I0: f115b140 I1: 919bd780 I2: 59e8be0e I3: 4e27c8d4 data_o: f115b140 select: 0
+# I0: f115b140 I1: 919bd780 I2: 59e8be0e I3: 4e27c8d4 data_o: 919bd780 select: 1
+# I0: f115b140 I1: 919bd780 I2: 59e8be0e I3: 4e27c8d4 data_o: 59e8be0e select: 2
+# I0: f115b140 I1: 919bd780 I2: 59e8be0e I3: 4e27c8d4 data_o: 4e27c8d4 select: 3
+# I0: 4a7ce98e I1: 35f664c0 I2: 1ccb1997 I3: 78d19125 data_o: 4a7ce98e select: 0
+# I0: 4a7ce98e I1: 35f664c0 I2: 1ccb1997 I3: 78d19125 data_o: 35f664c0 select: 1
+# I0: 4a7ce98e I1: 35f664c0 I2: 1ccb1997 I3: 78d19125 data_o: 1ccb1997 select: 2
+# I0: 4a7ce98e I1: 35f664c0 I2: 1ccb1997 I3: 78d19125 data_o: 78d19125 select: 3
+# I0: c573dbc7 I1: e5cb7258 I2: 33bff951 I3: a872c932 data_o: c573dbc7 select: 0
+# I0: c573dbc7 I1: e5cb7258 I2: 33bff951 I3: a872c932 data_o: e5cb7258 select: 1
+# I0: c573dbc7 I1: e5cb7258 I2: 33bff951 I3: a872c932 data_o: 33bff951 select: 2
+# I0: c573dbc7 I1: e5cb7258 I2: 33bff951 I3: a872c932 data_o: a872c932 select: 3
+# I0: ff20de23 I1: 4102d354 I2: 9ea101b3 I3: 1d1e565a data_o: ff20de23 select: 0
+# I0: ff20de23 I1: 4102d354 I2: 9ea101b3 I3: 1d1e565a data_o: 4102d354 select: 1
+# I0: ff20de23 I1: 4102d354 I2: 9ea101b3 I3: 1d1e565a data_o: 9ea101b3 select: 2
+# I0: ff20de23 I1: 4102d354 I2: 9ea101b3 I3: 1d1e565a data_o: 1d1e565a select: 3
+# I0: 63ae1ae6 I1: a7d6f5f6 I2: 71d63265 I3: 01fa15ea data_o: 63ae1ae6 select: 0
+# I0: 63ae1ae6 I1: a7d6f5f6 I2: 71d63265 I3: 01fa15ea data_o: a7d6f5f6 select: 1
+# I0: 63ae1ae6 I1: a7d6f5f6 I2: 71d63265 I3: 01fa15ea data_o: 71d63265 select: 2
+# I0: 63ae1ae6 I1: a7d6f5f6 I2: 71d63265 I3: 01fa15ea data_o: 01fa15ea select: 3
+# I0: 2f535b0f I1: 0f0c10ef I2: f99ca444 I3: 08d25dc9 data_o: 2f535b0f select: 0
+# I0: 2f535b0f I1: 0f0c10ef I2: f99ca444 I3: 08d25dc9 data_o: 0f0c10ef select: 1
+# I0: 2f535b0f I1: 0f0c10ef I2: f99ca444 I3: 08d25dc9 data_o: f99ca444 select: 2
+# I0: 2f535b0f I1: 0f0c10ef I2: f99ca444 I3: 08d25dc9 data_o: 08d25dc9 select: 3
+# I0: 88ef10cb I1: 3f9ec347 I2: 01a37ac7 I3: e1a0d5f2 data_o: 88ef10cb select: 0
+# I0: 88ef10cb I1: 3f9ec347 I2: 01a37ac7 I3: e1a0d5f2 data_o: 3f9ec347 select: 1
+# I0: 88ef10cb I1: 3f9ec347 I2: 01a37ac7 I3: e1a0d5f2 data_o: 01a37ac7 select: 2
+# I0: 88ef10cb I1: 3f9ec347 I2: 01a37ac7 I3: e1a0d5f2 data_o: e1a0d5f2 select: 3
+# I0: 893a9be1 I1: a19a5385 I2: b829d330 I3: d8f42276 data_o: 893a9be1 select: 0
+# I0: 893a9be1 I1: a19a5385 I2: b829d330 I3: d8f42276 data_o: a19a5385 select: 1
+# I0: 893a9be1 I1: a19a5385 I2: b829d330 I3: d8f42276 data_o: b829d330 select: 2
+# I0: 893a9be1 I1: a19a5385 I2: b829d330 I3: d8f42276 data_o: d8f42276 select: 3
+# I0: ab4d491d I1: 7c9045d2 I2: b914e716 I3: cfc10edb data_o: ab4d491d select: 0
+# I0: ab4d491d I1: 7c9045d2 I2: b914e716 I3: cfc10edb data_o: 7c9045d2 select: 1
+# I0: ab4d491d I1: 7c9045d2 I2: b914e716 I3: cfc10edb data_o: b914e716 select: 2
+# I0: ab4d491d I1: 7c9045d2 I2: b914e716 I3: cfc10edb data_o: cfc10edb select: 3
+# I0: ed421340 I1: 4a25cab5 I2: 39de3291 I3: bd439f73 data_o: ed421340 select: 0
+# I0: ed421340 I1: 4a25cab5 I2: 39de3291 I3: bd439f73 data_o: 4a25cab5 select: 1
+# I0: ed421340 I1: 4a25cab5 I2: 39de3291 I3: bd439f73 data_o: 39de3291 select: 2
+# I0: ed421340 I1: 4a25cab5 I2: 39de3291 I3: bd439f73 data_o: bd439f73 select: 3
+# I0: ef1210a0 I1: 940a7d57 I2: bb041c1d I3: a278a3d4 data_o: ef1210a0 select: 0
+# I0: ef1210a0 I1: 940a7d57 I2: bb041c1d I3: a278a3d4 data_o: 940a7d57 select: 1
+# I0: ef1210a0 I1: 940a7d57 I2: bb041c1d I3: a278a3d4 data_o: bb041c1d select: 2
+# I0: ef1210a0 I1: 940a7d57 I2: bb041c1d I3: a278a3d4 data_o: a278a3d4 select: 3
+# I0: 40c71fdd I1: 951fa19a I2: 3846d084 I3: 33a04bb7 data_o: 40c71fdd select: 0
+# I0: 40c71fdd I1: 951fa19a I2: 3846d084 I3: 33a04bb7 data_o: 951fa19a select: 1
+# I0: 40c71fdd I1: 951fa19a I2: 3846d084 I3: 33a04bb7 data_o: 3846d084 select: 2
+# I0: 40c71fdd I1: 951fa19a I2: 3846d084 I3: 33a04bb7 data_o: 33a04bb7 select: 3
+# I0: 5d1ebc89 I1: 69e8990a I2: e7d97ad5 I3: 10e50cfe data_o: 5d1ebc89 select: 0
+# I0: 5d1ebc89 I1: 69e8990a I2: e7d97ad5 I3: 10e50cfe data_o: 69e8990a select: 1
+# I0: 5d1ebc89 I1: 69e8990a I2: e7d97ad5 I3: 10e50cfe data_o: e7d97ad5 select: 2
+# I0: 5d1ebc89 I1: 69e8990a I2: e7d97ad5 I3: 10e50cfe data_o: 10e50cfe select: 3
+# I0: 1a163e4c I1: ddc98dfe I2: 407c1ac3 I3: c471ef88 data_o: 1a163e4c select: 0
+# I0: 1a163e4c I1: ddc98dfe I2: 407c1ac3 I3: c471ef88 data_o: ddc98dfe select: 1
+# I0: 1a163e4c I1: ddc98dfe I2: 407c1ac3 I3: c471ef88 data_o: 407c1ac3 select: 2
+# I0: 1a163e4c I1: ddc98dfe I2: 407c1ac3 I3: c471ef88 data_o: c471ef88 select: 3
+# I0: 90621dbc I1: 321b459b I2: e50ebaf3 I3: cf80ee2f data_o: 90621dbc select: 0
+# I0: 90621dbc I1: 321b459b I2: e50ebaf3 I3: cf80ee2f data_o: 321b459b select: 1
+# I0: 90621dbc I1: 321b459b I2: e50ebaf3 I3: cf80ee2f data_o: e50ebaf3 select: 2
+# I0: 90621dbc I1: 321b459b I2: e50ebaf3 I3: cf80ee2f data_o: cf80ee2f select: 3
+# I0: 0d7a45b7 I1: 87b3d10b I2: 680d3ae7 I3: 9c6fad00 data_o: 0d7a45b7 select: 0
+# I0: 0d7a45b7 I1: 87b3d10b I2: 680d3ae7 I3: 9c6fad00 data_o: 87b3d10b select: 1
+# I0: 0d7a45b7 I1: 87b3d10b I2: 680d3ae7 I3: 9c6fad00 data_o: 680d3ae7 select: 2
+# I0: 0d7a45b7 I1: 87b3d10b I2: 680d3ae7 I3: 9c6fad00 data_o: 9c6fad00 select: 3
+# I0: 1d5d4909 I1: 45a1a26a I2: c4273ac1 I3: 288c1e04 data_o: 1d5d4909 select: 0
+# I0: 1d5d4909 I1: 45a1a26a I2: c4273ac1 I3: 288c1e04 data_o: 45a1a26a select: 1
+# I0: 1d5d4909 I1: 45a1a26a I2: c4273ac1 I3: 288c1e04 data_o: c4273ac1 select: 2
+# I0: 1d5d4909 I1: 45a1a26a I2: c4273ac1 I3: 288c1e04 data_o: 288c1e04 select: 3
+# I0: cfecaf60 I1: 9d1f43af I2: 4b6fc56f I3: f7c69945 data_o: cfecaf60 select: 0
+# I0: cfecaf60 I1: 9d1f43af I2: 4b6fc56f I3: f7c69945 data_o: 9d1f43af select: 1
+# I0: cfecaf60 I1: 9d1f43af I2: 4b6fc56f I3: f7c69945 data_o: 4b6fc56f select: 2
+# I0: cfecaf60 I1: 9d1f43af I2: 4b6fc56f I3: f7c69945 data_o: f7c69945 select: 3
+# I0: ebffe7cd I1: a8c0776c I2: fcd73ed0 I3: 4bcc40a9 data_o: ebffe7cd select: 0
+# I0: ebffe7cd I1: a8c0776c I2: fcd73ed0 I3: 4bcc40a9 data_o: a8c0776c select: 1
+# I0: ebffe7cd I1: a8c0776c I2: fcd73ed0 I3: 4bcc40a9 data_o: fcd73ed0 select: 2
+# I0: ebffe7cd I1: a8c0776c I2: fcd73ed0 I3: 4bcc40a9 data_o: 4bcc40a9 select: 3
+# I0: f2a0cdfc I1: 8a6cc2e5 I2: 6c5c70a7 I3: ee97403b data_o: f2a0cdfc select: 0
+# I0: f2a0cdfc I1: 8a6cc2e5 I2: 6c5c70a7 I3: ee97403b data_o: 8a6cc2e5 select: 1
+# I0: f2a0cdfc I1: 8a6cc2e5 I2: 6c5c70a7 I3: ee97403b data_o: 6c5c70a7 select: 2
+# I0: f2a0cdfc I1: 8a6cc2e5 I2: 6c5c70a7 I3: ee97403b data_o: ee97403b select: 3
+# I0: 14b4d8be I1: b24c7aa1 I2: b4a52585 I3: b9012f8e data_o: 14b4d8be select: 0
+# I0: 14b4d8be I1: b24c7aa1 I2: b4a52585 I3: b9012f8e data_o: b24c7aa1 select: 1
+# I0: 14b4d8be I1: b24c7aa1 I2: b4a52585 I3: b9012f8e data_o: b4a52585 select: 2
+# I0: 14b4d8be I1: b24c7aa1 I2: b4a52585 I3: b9012f8e data_o: b9012f8e select: 3
+# I0: bda3dfa0 I1: 6d3f6115 I2: 507d9000 I3: 0d19b9c4 data_o: bda3dfa0 select: 0
+# I0: bda3dfa0 I1: 6d3f6115 I2: 507d9000 I3: 0d19b9c4 data_o: 6d3f6115 select: 1
+# I0: bda3dfa0 I1: 6d3f6115 I2: 507d9000 I3: 0d19b9c4 data_o: 507d9000 select: 2
+# I0: bda3dfa0 I1: 6d3f6115 I2: 507d9000 I3: 0d19b9c4 data_o: 0d19b9c4 select: 3
+# I0: 1e4eb78b I1: 7f63b0a8 I2: 0d8266bd I3: 36c16a6c data_o: 1e4eb78b select: 0
+# I0: 1e4eb78b I1: 7f63b0a8 I2: 0d8266bd I3: 36c16a6c data_o: 7f63b0a8 select: 1
+# I0: 1e4eb78b I1: 7f63b0a8 I2: 0d8266bd I3: 36c16a6c data_o: 0d8266bd select: 2
+# I0: 1e4eb78b I1: 7f63b0a8 I2: 0d8266bd I3: 36c16a6c data_o: 36c16a6c select: 3
+# I0: 0154eb7d I1: 491c16ab I2: da26d1aa I3: 89ae5561 data_o: 0154eb7d select: 0
+# I0: 0154eb7d I1: 491c16ab I2: da26d1aa I3: 89ae5561 data_o: 491c16ab select: 1
+# I0: 0154eb7d I1: 491c16ab I2: da26d1aa I3: 89ae5561 data_o: da26d1aa select: 2
+# I0: 0154eb7d I1: 491c16ab I2: da26d1aa I3: 89ae5561 data_o: 89ae5561 select: 3
+# I0: 75491ab2 I1: feca5156 I2: b94fea46 I3: 848438d4 data_o: 75491ab2 select: 0
+# I0: 75491ab2 I1: feca5156 I2: b94fea46 I3: 848438d4 data_o: feca5156 select: 1
+# I0: 75491ab2 I1: feca5156 I2: b94fea46 I3: 848438d4 data_o: b94fea46 select: 2
+# I0: 75491ab2 I1: feca5156 I2: b94fea46 I3: 848438d4 data_o: 848438d4 select: 3
+# I0: 75ab22e1 I1: 0441efd4 I2: f6f2f421 I3: cb70f960 data_o: 75ab22e1 select: 0
+# I0: 75ab22e1 I1: 0441efd4 I2: f6f2f421 I3: cb70f960 data_o: 0441efd4 select: 1
+# I0: 75ab22e1 I1: 0441efd4 I2: f6f2f421 I3: cb70f960 data_o: f6f2f421 select: 2
+# I0: 75ab22e1 I1: 0441efd4 I2: f6f2f421 I3: cb70f960 data_o: cb70f960 select: 3
+# I0: c0315769 I1: 896db606 I2: 3b6077f4 I3: 1b02367e data_o: c0315769 select: 0
+# I0: c0315769 I1: 896db606 I2: 3b6077f4 I3: 1b02367e data_o: 896db606 select: 1
+# I0: c0315769 I1: 896db606 I2: 3b6077f4 I3: 1b02367e data_o: 3b6077f4 select: 2
+# I0: c0315769 I1: 896db606 I2: 3b6077f4 I3: 1b02367e data_o: 1b02367e select: 3
+# I0: a0dd94ca I1: db467228 I2: c11e0803 I3: 0a076daf data_o: a0dd94ca select: 0
+# I0: a0dd94ca I1: db467228 I2: c11e0803 I3: 0a076daf data_o: db467228 select: 1
+# I0: a0dd94ca I1: db467228 I2: c11e0803 I3: 0a076daf data_o: c11e0803 select: 2
+# I0: a0dd94ca I1: db467228 I2: c11e0803 I3: 0a076daf data_o: 0a076daf select: 3
+# I0: 5f58d3ec I1: 4d44437e I2: 0c8e6446 I3: e4945948 data_o: 5f58d3ec select: 0
+# I0: 5f58d3ec I1: 4d44437e I2: 0c8e6446 I3: e4945948 data_o: 4d44437e select: 1
+# I0: 5f58d3ec I1: 4d44437e I2: 0c8e6446 I3: e4945948 data_o: 0c8e6446 select: 2
+# I0: 5f58d3ec I1: 4d44437e I2: 0c8e6446 I3: e4945948 data_o: e4945948 select: 3
+# I0: a9f266c5 I1: 49d697fe I2: 23abe6a4 I3: 274bbd75 data_o: a9f266c5 select: 0
+# I0: a9f266c5 I1: 49d697fe I2: 23abe6a4 I3: 274bbd75 data_o: 49d697fe select: 1
+# I0: a9f266c5 I1: 49d697fe I2: 23abe6a4 I3: 274bbd75 data_o: 23abe6a4 select: 2
+# I0: a9f266c5 I1: 49d697fe I2: 23abe6a4 I3: 274bbd75 data_o: 274bbd75 select: 3
+# I0: 2706f00d I1: 9d999676 I2: e00e2c7d I3: 2337ad1f data_o: 2706f00d select: 0
+# I0: 2706f00d I1: 9d999676 I2: e00e2c7d I3: 2337ad1f data_o: 9d999676 select: 1
+# I0: 2706f00d I1: 9d999676 I2: e00e2c7d I3: 2337ad1f data_o: e00e2c7d select: 2
+# I0: 2706f00d I1: 9d999676 I2: e00e2c7d I3: 2337ad1f data_o: 2337ad1f select: 3
+# I0: 44f1adf9 I1: 3f209279 I2: a5cbca21 I3: d53a286d data_o: 44f1adf9 select: 0
+# I0: 44f1adf9 I1: 3f209279 I2: a5cbca21 I3: d53a286d data_o: 3f209279 select: 1
+# I0: 44f1adf9 I1: 3f209279 I2: a5cbca21 I3: d53a286d data_o: a5cbca21 select: 2
+# I0: 44f1adf9 I1: 3f209279 I2: a5cbca21 I3: d53a286d data_o: d53a286d select: 3
+# I0: 2483eadd I1: 513522cf I2: 600543f1 I3: 537fce65 data_o: 2483eadd select: 0
+# I0: 2483eadd I1: 513522cf I2: 600543f1 I3: 537fce65 data_o: 513522cf select: 1
+# I0: 2483eadd I1: 513522cf I2: 600543f1 I3: 537fce65 data_o: 600543f1 select: 2
+# I0: 2483eadd I1: 513522cf I2: 600543f1 I3: 537fce65 data_o: 537fce65 select: 3
+# I0: b444a59a I1: e69e5f70 I2: 7d685ba8 I3: 28249776 data_o: b444a59a select: 0
+# I0: b444a59a I1: e69e5f70 I2: 7d685ba8 I3: 28249776 data_o: e69e5f70 select: 1
+# I0: b444a59a I1: e69e5f70 I2: 7d685ba8 I3: 28249776 data_o: 7d685ba8 select: 2
+# I0: b444a59a I1: e69e5f70 I2: 7d685ba8 I3: 28249776 data_o: 28249776 select: 3
+# I0: 5fed23ee I1: 6f7db9b4 I2: 521e5118 I3: 82869a51 data_o: 5fed23ee select: 0
+# I0: 5fed23ee I1: 6f7db9b4 I2: 521e5118 I3: 82869a51 data_o: 6f7db9b4 select: 1
+# I0: 5fed23ee I1: 6f7db9b4 I2: 521e5118 I3: 82869a51 data_o: 521e5118 select: 2
+# I0: 5fed23ee I1: 6f7db9b4 I2: 521e5118 I3: 82869a51 data_o: 82869a51 select: 3
+# I0: dec1e27c I1: 085a734d I2: b8a824c1 I3: bc326eb7 data_o: dec1e27c select: 0
+# I0: dec1e27c I1: 085a734d I2: b8a824c1 I3: bc326eb7 data_o: 085a734d select: 1
+# I0: dec1e27c I1: 085a734d I2: b8a824c1 I3: bc326eb7 data_o: b8a824c1 select: 2
+# I0: dec1e27c I1: 085a734d I2: b8a824c1 I3: bc326eb7 data_o: bc326eb7 select: 3
+# I0: d8e20a46 I1: f05ba6f0 I2: 35bb7927 I3: 9fd36173 data_o: d8e20a46 select: 0
+# I0: d8e20a46 I1: f05ba6f0 I2: 35bb7927 I3: 9fd36173 data_o: f05ba6f0 select: 1
+# I0: d8e20a46 I1: f05ba6f0 I2: 35bb7927 I3: 9fd36173 data_o: 35bb7927 select: 2
+# I0: d8e20a46 I1: f05ba6f0 I2: 35bb7927 I3: 9fd36173 data_o: 9fd36173 select: 3
+# I0: fa04273c I1: 46f8fc96 I2: 72c8dec8 I3: 40128742 data_o: fa04273c select: 0
+# I0: fa04273c I1: 46f8fc96 I2: 72c8dec8 I3: 40128742 data_o: 46f8fc96 select: 1
+# I0: fa04273c I1: 46f8fc96 I2: 72c8dec8 I3: 40128742 data_o: 72c8dec8 select: 2
+# I0: fa04273c I1: 46f8fc96 I2: 72c8dec8 I3: 40128742 data_o: 40128742 select: 3
+# I0: 160f7526 I1: e4605a39 I2: 7f06ab73 I3: 9d3957af data_o: 160f7526 select: 0
+# I0: 160f7526 I1: e4605a39 I2: 7f06ab73 I3: 9d3957af data_o: e4605a39 select: 1
+# I0: 160f7526 I1: e4605a39 I2: 7f06ab73 I3: 9d3957af data_o: 7f06ab73 select: 2
+# I0: 160f7526 I1: e4605a39 I2: 7f06ab73 I3: 9d3957af data_o: 9d3957af select: 3
+# I0: 004101b4 I1: 79422167 I2: c61960c8 I3: 23eccfeb data_o: 004101b4 select: 0
+# I0: 004101b4 I1: 79422167 I2: c61960c8 I3: 23eccfeb data_o: 79422167 select: 1
+# I0: 004101b4 I1: 79422167 I2: c61960c8 I3: 23eccfeb data_o: c61960c8 select: 2
+# I0: 004101b4 I1: 79422167 I2: c61960c8 I3: 23eccfeb data_o: 23eccfeb select: 3
+# I0: 062a3452 I1: 1debd98a I2: d2a7954e I3: 8d6cd82c data_o: 062a3452 select: 0
+# I0: 062a3452 I1: 1debd98a I2: d2a7954e I3: 8d6cd82c data_o: 1debd98a select: 1
+# I0: 062a3452 I1: 1debd98a I2: d2a7954e I3: 8d6cd82c data_o: d2a7954e select: 2
+# I0: 062a3452 I1: 1debd98a I2: d2a7954e I3: 8d6cd82c data_o: 8d6cd82c select: 3
+# I0: e9747ddf I1: 20db1ac7 I2: 01a14c91 I3: 24a197f5 data_o: e9747ddf select: 0
+# I0: e9747ddf I1: 20db1ac7 I2: 01a14c91 I3: 24a197f5 data_o: 20db1ac7 select: 1
+# I0: e9747ddf I1: 20db1ac7 I2: 01a14c91 I3: 24a197f5 data_o: 01a14c91 select: 2
+# I0: e9747ddf I1: 20db1ac7 I2: 01a14c91 I3: 24a197f5 data_o: 24a197f5 select: 3
+# Finished
+# ** Note: $stop    : D:/Verilog/RV32I_Processor/src/cpu/DataFlow/mux4to1_test.v(29)
+#    Time: 2 us  Iteration: 0  Instance: /mux4to1_TB
+# Break in Module mux4to1_TB at D:/Verilog/RV32I_Processor/src/cpu/DataFlow/mux4to1_test.v line 29
+# Stopped at D:/Verilog/RV32I_Processor/src/cpu/DataFlow/mux4to1_test.v line 29
