@@ -5,7 +5,6 @@ do processador, e retorna todas as saídas relevantes para serem enviadas ao cir
 */
 module DecoderBINSN (
   input wire [31:0] insn, // instrução de 32 bits
-  input wire clk,
   input wire EQ, LS, LU, // entradas de comparação  
   output reg pc_alu_sel // Sinal que seleciona se qual incremeto será dado ao PC
 );
@@ -13,14 +12,15 @@ module DecoderBINSN (
   assign func = insn[14:12]; 
 
   always @(insn, EQ, LS, LU) begin
-    // realizamos as comparações, e baseado no opcode, ou a alu do pc recebe 4 normalmente e não realiza um branch, ou recebe o valor imediato e avança/retorna para algum endereço
+    /* realizamos as comparações, e baseado no opcode, ou a alu do pc recebe 4 normalmente e 
+    não realiza um branch, ou recebe o valor imediato e avança/retorna para algum endereço */
     case (func)
-      3'b000: pc_alu_sel = (EQ & ~clk);
-      3'b001: pc_alu_sel = (~EQ & ~clk);
-      3'b100: pc_alu_sel = (LS & ~clk);
-      3'b101: pc_alu_sel = (~LS & ~clk);
-      3'b110: pc_alu_sel = (LU & ~clk);
-      3'b111: pc_alu_sel = (~LU & ~clk);
+      3'b000: pc_alu_sel = (EQ);
+      3'b001: pc_alu_sel = (~EQ);
+      3'b100: pc_alu_sel = (LS);
+      3'b101: pc_alu_sel = (~LS);
+      3'b110: pc_alu_sel = (LU);
+      3'b111: pc_alu_sel = (~LU);
       default: pc_alu_sel = 1'bx;
     endcase
   end
