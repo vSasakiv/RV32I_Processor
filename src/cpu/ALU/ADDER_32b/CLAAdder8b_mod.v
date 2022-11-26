@@ -21,7 +21,7 @@ module CLAAdder8b(A, B, CIN, S, COUT);
     wire PC1, PC2, PC3, PC4, PC5, PC6, PC7, PC8;
     wire G1, G2, G3, G4, G5, G6, G7, G8;
     
-    // C1 = G1 + P2*C0 (C0 = CIN) 
+    // C1 = G1 + P1*C0 (C0 = CIN) 
     and P01 (PC1,P0,CIN);
     or C01 (C1, G1, PC1);
 
