@@ -56,7 +56,8 @@ Ao executar o comando acima, basta digitar `run -all` que toda a simulação ser
 
 ## Módulo CPU
 Para o módulo CPU, como devemos escolher qual teste, ou seja, qual arquivo de memória deve ser carregado, é necessário ir até o módulo RAM_mod.v, localizado em src/cpu e modificar manualmente qual teste é o escolhido.
-
+### GetINSN
+Para mais fácil geração dos arquivos de memória contendo as instruções, também foi feito um script em C, presente no diretório GetINSN, que obtém os códigos binários das instruções, baseados na entrada do usuário.
 # Inspeção
 Para realizar a inspeção de Testbenchs, são utilizadas 3 métodos: verificação por meio do terminal, verificação por timing diagram (arquivo .vcd) e verificação por análise de memória. <br>
 A verificação pelo terminal é feita em módulos mais simples, e é simplesmente visualizada executando `run -all` dentro do ambiente de simulação, e inspecionando as saídas no terminal. <br>
