@@ -1,6 +1,7 @@
 /* Módulo da Control Unit do processador.
 Recebe a instrução e os sinais resultados de comparações da ALU, emitindo sinais necessários para execução da instrução dada */
 module CU (
+  input clk,
   input [31:0] insn, // Instrução 
   input LU, LS, EQ, // Sinais resultados de comparações da ALU
   output addr_sel, alu_sel_a, alu_sel_b, pc_next_sel,  pc_alu_sel, // Seletores, sinais que selecionam saídas de multiplexadores 
@@ -13,11 +14,6 @@ module CU (
   output [1:0] rd_sel, // Seletor do valor que o registrador rd do regfile irá receber 
   output [4:0] rs1, rs2, rd // Endereços no regfile dos registradores de saída rs1 e rs2 e do registrador de destino rd
 );
-  // Sinal de clock principal
-  wire clk;
-
-  // Gerador do clock
-  ClockGen C0 (.clk(clk));
 
   // Decodificação do opcode em um código - code - que será utilizado para decidir quais sinais emitir
   wire [9:0] code;

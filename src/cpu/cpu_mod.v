@@ -17,17 +17,9 @@ module CPU (
   wire [4:0] rs1, rs2, rd;
   wire [31:0] insn, imm, dout, rs2_mem_i;
   wire EQ, LS, LU;
+  wire clk;
 
-/*   assign data_i[7:0] = rs2_mem_i[31:24];
-  assign data_i[15:8] = rs2_mem_i[23:16];
-  assign data_i[23:16] = rs2_mem_i[15:8];
-  assign data_i[31:24] = rs2_mem_i[7:0];  */
-
-/*   assign dout[7:0] = data_o[31:24];
-  assign dout[15:8] = data_o[23:16];
-  assign dout[23:16] = data_o[15:8];
-  assign dout[31:24] = data_o[7:0]; */
-
+  ClockGen CLK0 (.clk(clk));
 
   CU CONTROL0 (
     .addr_sel(addr_sel)
@@ -51,7 +43,8 @@ module CPU (
     ,.EQ(EQ)
     ,.LS(LS)
     ,.LU(LU)
-	 ,.imm(imm));
+	 ,.imm(imm)
+   ,.clk(clk));
   
   dataflow DF0 (
     .sub_sra(sub_sra)
