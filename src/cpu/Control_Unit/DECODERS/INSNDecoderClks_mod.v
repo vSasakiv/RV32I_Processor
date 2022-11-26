@@ -16,7 +16,7 @@ module INSNDecoderClks (
   wire [9:0] addr_sel_c, pc_next_sel_c, sub_sra_c, pc_alu_sel_c, rd_clk_c, mem_clk_c;
 
   // instanciação de todos os módulos de decoder
-  DecoderBINSN D0 (.insn(insn), .clk(clk), .EQ(EQ), .LS(LS), .LU(LU), .pc_alu_sel(pc_alu_sel_B));
+  DecoderBINSN D0 (.insn(insn), .EQ(EQ), .LS(LS), .LU(LU), .pc_alu_sel(pc_alu_sel_B));
   DecoderIINSN_alu D1 (.insn(insn), .sub_sra(sub_sra_IA));
   DecoderRINSN D5 (.insn(insn), .sub_sra(sub_sra_R));
 
