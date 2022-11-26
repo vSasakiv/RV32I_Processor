@@ -6,7 +6,7 @@ Um processador 32-bits que implementa o ISA (Instruction Set Architecture) RISC-
 
 O processador foi feito seguindo o ISA RISC-V 32I tendo palavras de 32 bits, e executando operações aritméticas apenas com números inteiros. Além das operações, também é capaz de executar todas as intruções da ISA, como *Branches, Jumps, Loads e Stores*, apenas não executando as instruções de manipulação de *CSR* (Control and Status Registers), pois os mesmos não se encaixam no escopo do projeto
 
-- [ ] TODO IMAGEM CIRCUITO TODO
+![](assets/fullcircuit.png)
 
 # Compilação
 
