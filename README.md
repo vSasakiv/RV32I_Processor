@@ -10,7 +10,7 @@ O processador foi feito seguindo o ISA RISC-V 32I tendo palavras de 32 bits, e e
 
 # Compilação
 
-Para realizar a compilação dos arquivos verilog, é primeiro criado a pasta work e em seguida os arquivos são compilados utilizando `vlog <caminho ao arquivo>` presente na ferramenta Questa, e para realizar a simulação de algum Testbench, utilizamos `vsim -c work.<Nome do módulo a ser executado>`. Também é possível utilizar a *makefile* presente neste projeto, para facilitação a compilação de um grande número de arquivos verilog. Para realizar a geração de arquivos *waveform* (.vcd) também é necessário algumas flags de compilação como `-incr` e `+acc`
+Para realizar a compilação dos arquivos verilog, é primeiro criada a pasta work utilizando `mkdir work` (obs: todos os comandos devem ser executados no diretório que contém este README!!) e em seguida os arquivos são compilados utilizando `vlog <caminho ao arquivo>` presente na ferramenta Questa, e para realizar a simulação de algum Testbench, utilizamos `vsim -c work.<Nome do módulo a ser executado>`. Também é possível utilizar a *makefile* presente neste projeto, para facilitação a compilação de um grande número de arquivos verilog. Para realizar a geração de arquivos *waveform* (.vcd) também é necessário algumas flags de compilação como `-incr` e `+acc`
 
 > Exemplo de compilação de um arquivo
 > ~~~
@@ -18,7 +18,7 @@ Para realizar a compilação dos arquivos verilog, é primeiro criado a pasta wo
 > ~~~
 
 ## Makefile
-Este projeto contem uma makefile utilizada para compilar todos os arquivos verilog (exceto o arquivo de template) presentes no projeto. Esta ferramenta foi apenas testada no sistema operacional Windows, não sendo certa o seu funcionamento em outros ambientes.
+Este projeto contem uma makefile utilizada para compilar todos os arquivos verilog presentes no projeto. Esta ferramenta foi apenas testada no sistema operacional Windows, não sendo certo o seu funcionamento em outros ambientes.
 ## Comandos
 
 ~~~shell
@@ -54,17 +54,22 @@ Para realizar a execução de um Testbench, basta compilar o arquivo junto com t
 > ~~~
 Ao executar o comando acima, basta digitar `run -all` que toda a simulação será executada e os arquivos serão gerados.
 
+## Módulo CPU
+Para o módulo CPU, como devemos escolher qual teste, ou seja, qual arquivo de memória deve ser carregado, é necessário ir até o módulo RAM_mod.v, localizado em src/cpu e modificar manualmente qual teste é o escolhido.
+
 # Inspeção
 Para realizar a inspeção de Testbenchs, são utilizadas 3 métodos: verificação por meio do terminal, verificação por timing diagram (arquivo .vcd) e verificação por análise de memória. <br>
 A verificação pelo terminal é feita em módulos mais simples, e é simplesmente visualizada executando `run -all` dentro do ambiente de simulação, e inspecionando as saídas no terminal. <br>
 >exemplo execução terminal <br>
 ![](/assets/terminal.png)
 
-A verificação por timing diagram é utilizada em módulos que contém um número elevado de sinais que torna inviável a utilização, nestes módulos, ao executor `run -all` no ambiente de simulação, é gerado um arquivo com extensão .vcd que pode ser abertos em algum software (foi utilizado o GTKWave) para a inspeção dos sinais.
+A verificação por timing diagram é utilizada em módulos que contém um número elevado de sinais que torna inviável a utilização do terminal, nestes módulos, ao executar `run -all` no ambiente de simulação, é gerado um arquivo com extensão .vcd que pode ser abertos em algum software (foi utilizado o GTKWave) para a inspeção dos sinais.
 
 >exemplo timing diagram <br>
 ![](assets/waveform1.png)
 
 A verificação por memória é feita apenas nas simulações da própria CPU, onde é gerado um arquivo RAMOUT.hex, que pode ser utilizado para verificar se, por exemplo, as variáveis utilizadas estão gravadas com os valores esperados.
 
-- [ ] TODO imagem memória
+>exemplo análise de memória: verificando que um vetor realmente foi ordenado
+>(como RISC-V utiliza little-endian, basta inverter a ordem dos bytes para revelar o valor real) <br>
+![](assets/memory.png)
