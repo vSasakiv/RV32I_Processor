@@ -7,5 +7,8 @@ int main(){
   int a;
   a = 1;
   a = a + 1;
-  return 0;
+  /* ebreak para parar a execução do processador assim que o programa for finalizado */
+  asm(
+    "ebreak\n\t"
+  );
 }

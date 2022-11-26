@@ -3,19 +3,23 @@
 asm(
   "addi sp,zero,1000\n\t"
 );
-int multiplica(int, int);
+int multiplicainc(int, int);
 
 int main(){
   int a, b;
   a = 5;
   b = 3;
-  multiplica(a, b);
+  multiplicainc(a, b);
+  /* ebreak para parar a execução do processador assim que o programa for finalizado */
+  asm(
+    "ebreak\n\t"
+  );
 }
 
-int multiplica (int a, int b){
+int multiplicainc (int a, int b){
   int c = 2;
   if (a == 0)
     return c;
-  return b + multiplica(a-1, b) + c;
+  return b + multiplicainc(a-1, b) + c;
 }
 

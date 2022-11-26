@@ -11,5 +11,8 @@ int main(){
   v[3] = 890;
   v[4] = v[3] - v[2];
   v[5] = -90;
-  return 0;
+  /* ebreak para parar a execução do processador assim que o programa for finalizado */
+  asm(
+    "ebreak\n\t"
+  );
 }

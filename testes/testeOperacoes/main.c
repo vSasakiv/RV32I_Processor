@@ -21,6 +21,9 @@ int main(){
   c = b / c;
   a = a * b * c; 
   */
-
+  /* ebreak para parar a execução do processador assim que o programa for finalizado */
+  asm(
+    "ebreak\n\t"
+  );
   return 0;
 }

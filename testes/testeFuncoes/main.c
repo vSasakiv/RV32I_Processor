@@ -10,7 +10,10 @@ int main(){
   a = 4;
   b = 2;
   c = funcaoTeste(a, b);
-  return 0;
+  /* ebreak para parar a execução do processador assim que o programa for finalizado */
+  asm(
+    "ebreak\n\t"
+  );
 }
 
 int funcaoTeste(int a, int b){

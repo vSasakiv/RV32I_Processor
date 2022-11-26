@@ -26,8 +26,9 @@ Disassembly of section .text:
   40:	fef42423          	sw	x15,-24(x8)
   44:	fa600793          	addi	x15,x0,-90
   48:	fef42623          	sw	x15,-20(x8)
-  4c:	00000793          	addi	x15,x0,0
-  50:	00078513          	addi	x10,x15,0
-  54:	02c12403          	lw	x8,44(x2)
-  58:	03010113          	addi	x2,x2,48
-  5c:	00008067          	jalr	x0,0(x1)
+  4c:	00100073          	ebreak
+  50:	00000013          	addi	x0,x0,0
+  54:	00078513          	addi	x10,x15,0
+  58:	02c12403          	lw	x8,44(x2)
+  5c:	03010113          	addi	x2,x2,48
+  60:	00008067          	jalr	x0,0(x1)
