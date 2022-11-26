@@ -57,12 +57,12 @@ Ao executar o comando acima, basta digitar `run -all` que toda a simulação ser
 # Inspeção
 Para realizar a inspeção de Testbenchs, são utilizadas 3 métodos: verificação por meio do terminal, verificação por timing diagram (arquivo .vcd) e verificação por análise de memória. <br>
 A verificação pelo terminal é feita em módulos mais simples, e é simplesmente visualizada executando `run -all` dentro do ambiente de simulação, e inspecionando as saídas no terminal. <br>
->exemplo execução terminal
+>exemplo execução terminal <br>
 ![](/assets/terminal.png)
 
 A verificação por timing diagram é utilizada em módulos que contém um número elevado de sinais que torna inviável a utilização, nestes módulos, ao executor `run -all` no ambiente de simulação, é gerado um arquivo com extensão .vcd que pode ser abertos em algum software (foi utilizado o GTKWave) para a inspeção dos sinais.
 
->exemplo timing diagram
+>exemplo timing diagram <br>
 ![](assets/waveform1.png)
 
 A verificação por memória é feita apenas nas simulações da própria CPU, onde é gerado um arquivo RAMOUT.hex, que pode ser utilizado para verificar se, por exemplo, as variáveis utilizadas estão gravadas com os valores esperados.
