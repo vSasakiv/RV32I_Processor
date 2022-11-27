@@ -1,0 +1,48 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main-0x4>:
+   0:	3e800113          	addi	x2,x0,1000
+
+00000004 <main>:
+   4:	fe010113          	addi	x2,x2,-32
+   8:	00112e23          	sw	x1,28(x2)
+   c:	00812c23          	sw	x8,24(x2)
+  10:	02010413          	addi	x8,x2,32
+  14:	00400793          	addi	x15,x0,4
+  18:	fef42623          	sw	x15,-20(x8)
+  1c:	00200793          	addi	x15,x0,2
+  20:	fef42423          	sw	x15,-24(x8)
+  24:	fe842583          	lw	x11,-24(x8)
+  28:	fec42503          	lw	x10,-20(x8)
+  2c:	00000097          	auipc	x1,0x0
+  30:	028080e7          	jalr	x1,40(x1) # 54 <funcaoTeste>
+  34:	fea42223          	sw	x10,-28(x8)
+  38:	00100073          	ebreak
+  3c:	00000013          	addi	x0,x0,0
+  40:	00078513          	addi	x10,x15,0
+  44:	01c12083          	lw	x1,28(x2)
+  48:	01812403          	lw	x8,24(x2)
+  4c:	02010113          	addi	x2,x2,32
+  50:	00008067          	jalr	x0,0(x1)
+
+00000054 <funcaoTeste>:
+  54:	fd010113          	addi	x2,x2,-48
+  58:	02812623          	sw	x8,44(x2)
+  5c:	03010413          	addi	x8,x2,48
+  60:	fca42e23          	sw	x10,-36(x8)
+  64:	fcb42c23          	sw	x11,-40(x8)
+  68:	00500793          	addi	x15,x0,5
+  6c:	fef42623          	sw	x15,-20(x8)
+  70:	fdc42703          	lw	x14,-36(x8)
+  74:	fd842783          	lw	x15,-40(x8)
+  78:	00f70733          	add	x14,x14,x15
+  7c:	fec42783          	lw	x15,-20(x8)
+  80:	00f707b3          	add	x15,x14,x15
+  84:	00078513          	addi	x10,x15,0
+  88:	02c12403          	lw	x8,44(x2)
+  8c:	03010113          	addi	x2,x2,48
+  90:	00008067          	jalr	x0,0(x1)

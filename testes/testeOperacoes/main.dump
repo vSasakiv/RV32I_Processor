@@ -1,0 +1,41 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main-0x4>:
+   0:	3e800113          	addi	x2,x0,1000
+
+00000004 <main>:
+   4:	fd010113          	addi	x2,x2,-48
+   8:	02812623          	sw	x8,44(x2)
+   c:	03010413          	addi	x8,x2,48
+  10:	00300793          	addi	x15,x0,3
+  14:	fef42623          	sw	x15,-20(x8)
+  18:	00200793          	addi	x15,x0,2
+  1c:	fef42423          	sw	x15,-24(x8)
+  20:	fe042223          	sw	x0,-28(x8)
+  24:	fec42703          	lw	x14,-20(x8)
+  28:	fe842783          	lw	x15,-24(x8)
+  2c:	00f707b3          	add	x15,x14,x15
+  30:	fef42023          	sw	x15,-32(x8)
+  34:	fec42703          	lw	x14,-20(x8)
+  38:	fe842783          	lw	x15,-24(x8)
+  3c:	40f707b3          	sub	x15,x14,x15
+  40:	fcf42e23          	sw	x15,-36(x8)
+  44:	fe842783          	lw	x15,-24(x8)
+  48:	fff78793          	addi	x15,x15,-1
+  4c:	fec42703          	lw	x14,-20(x8)
+  50:	40f757b3          	sra	x15,x14,x15
+  54:	fcf42c23          	sw	x15,-40(x8)
+  58:	fe842783          	lw	x15,-24(x8)
+  5c:	fec42703          	lw	x14,-20(x8)
+  60:	00f717b3          	sll	x15,x14,x15
+  64:	fcf42a23          	sw	x15,-44(x8)
+  68:	00100073          	ebreak
+  6c:	00000793          	addi	x15,x0,0
+  70:	00078513          	addi	x10,x15,0
+  74:	02c12403          	lw	x8,44(x2)
+  78:	03010113          	addi	x2,x2,48
+  7c:	00008067          	jalr	x0,0(x1)

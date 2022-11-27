@@ -1,0 +1,59 @@
+
+main:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <main-0x4>:
+   0:	3e800113          	addi	x2,x0,1000
+
+00000004 <main>:
+   4:	fe010113          	addi	x2,x2,-32
+   8:	00112e23          	sw	x1,28(x2)
+   c:	00812c23          	sw	x8,24(x2)
+  10:	02010413          	addi	x8,x2,32
+  14:	00500793          	addi	x15,x0,5
+  18:	fef42623          	sw	x15,-20(x8)
+  1c:	00300793          	addi	x15,x0,3
+  20:	fef42423          	sw	x15,-24(x8)
+  24:	fe842583          	lw	x11,-24(x8)
+  28:	fec42503          	lw	x10,-20(x8)
+  2c:	00000097          	auipc	x1,0x0
+  30:	024080e7          	jalr	x1,36(x1) # 50 <multiplicainc>
+  34:	00100073          	ebreak
+  38:	00000013          	addi	x0,x0,0
+  3c:	00078513          	addi	x10,x15,0
+  40:	01c12083          	lw	x1,28(x2)
+  44:	01812403          	lw	x8,24(x2)
+  48:	02010113          	addi	x2,x2,32
+  4c:	00008067          	jalr	x0,0(x1)
+
+00000050 <multiplicainc>:
+  50:	fd010113          	addi	x2,x2,-48
+  54:	02112623          	sw	x1,44(x2)
+  58:	02812423          	sw	x8,40(x2)
+  5c:	03010413          	addi	x8,x2,48
+  60:	fca42e23          	sw	x10,-36(x8)
+  64:	fcb42c23          	sw	x11,-40(x8)
+  68:	00200793          	addi	x15,x0,2
+  6c:	fef42623          	sw	x15,-20(x8)
+  70:	fdc42783          	lw	x15,-36(x8)
+  74:	00079663          	bne	x15,x0,80 <multiplicainc+0x30>
+  78:	fec42783          	lw	x15,-20(x8)
+  7c:	0300006f          	jal	x0,ac <multiplicainc+0x5c>
+  80:	fdc42783          	lw	x15,-36(x8)
+  84:	fff78793          	addi	x15,x15,-1
+  88:	fd842583          	lw	x11,-40(x8)
+  8c:	00078513          	addi	x10,x15,0
+  90:	00000097          	auipc	x1,0x0
+  94:	fc0080e7          	jalr	x1,-64(x1) # 50 <multiplicainc>
+  98:	00050713          	addi	x14,x10,0
+  9c:	fd842783          	lw	x15,-40(x8)
+  a0:	00f70733          	add	x14,x14,x15
+  a4:	fec42783          	lw	x15,-20(x8)
+  a8:	00f707b3          	add	x15,x14,x15
+  ac:	00078513          	addi	x10,x15,0
+  b0:	02c12083          	lw	x1,44(x2)
+  b4:	02812403          	lw	x8,40(x2)
+  b8:	03010113          	addi	x2,x2,48
+  bc:	00008067          	jalr	x0,0(x1)
