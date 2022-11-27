@@ -1,7 +1,7 @@
 /* Testebench para memória RAM, onde foram geradores valores aleatórios de endereço e valores de entrada para serem gravados na memória. todos os valores escolhidos são expostos ao terminal por meio do $monitor. Também vale notar que neste testbench foi utilizado a memória com tamanho máximo. */
 `timescale 1 ns / 100 ps
 
-module RAMTB ();
+module RAM_TB ();
     reg clk;
     wire [31:0] data_o;
     reg [31:0] data_i;
