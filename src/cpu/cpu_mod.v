@@ -14,10 +14,10 @@ module CPU (
   wire addr_sel; // seletor endereço 
   wire [1:0] rd_sel; // seletor mux para RD
   wire [2:0] func, mem_extend; // func e memory extension size
-  wire [4:0] rs1, rs2, rd;
-  wire [31:0] insn, imm, dout, rs2_mem_i;
-  wire EQ, LS, LU;
-  wire clk;
+  wire [4:0] rs1, rs2, rd; // endereços dos registrador
+  wire [31:0] insn, imm, dout, rs2_mem_i; // sinal de instrução, valor imediato, saída da memória, e valor de entrada para memória
+  wire EQ, LS, LU; // entradas de comparação
+  wire clk; // sinal de clock
 
   ClockGen CLK0 (.clk(clk));
 
