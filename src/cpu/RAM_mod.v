@@ -33,12 +33,12 @@ reg [7:0] memory [0 : 65540]; // needs to be 32'hffffffff
     testeInstrucoes -> Executa o teste de um arquivo que contém todas as instruções da ISA do 
   RISC-V 32I.
   */
-
+/* APENAS PARA A REALIZAÇÃO DE TESTES*/
+/*!!!!!!*/
 initial begin
-  $readmemh({"testes/","testeHeapsort","/RAM.hex"}, memory);
-  
+  $readmemh({"testes/","testeRecursao","/RAM.hex"}, memory);
 end
-
+/*!!!!!!*/
 always @(posedge mem_clk) begin
     if (mem_size == 2'd0) begin
         memory[addr] <= data_i[7:0];
@@ -53,8 +53,13 @@ always @(posedge mem_clk) begin
         memory[addr+2] <= data_i[23:16];
         memory[addr+3] <= data_i[31:24];
     end
-    $writememh("RAMOUT.hex", memory);
 end
+/* APENAS PARA A REALIZAÇÃO DE TESTES*/
+/*!!!!!!*/
+always @(*) begin
+  $writememh("RAMOUT.hex", memory);
+end
+/*!!!!!!*/
 assign data_o = {memory[addr+3], memory[addr+2], memory[addr+1], memory[addr]};
-    
+
 endmodule
