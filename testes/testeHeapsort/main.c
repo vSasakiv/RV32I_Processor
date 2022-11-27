@@ -1,4 +1,4 @@
-/* Teste refinado para teste de maior parte das funções: heapsort*/
+/* Teste refinado de maior parte das funções: heapsort*/
 /* inicia o stack pointer em 2000, para realizar os testes */
 asm(
   "addi sp,zero,2000\n\t"

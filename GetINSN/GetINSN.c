@@ -16,7 +16,6 @@ void ListaINSN();
 
 int main () {
     int TipoIns;
-    int hex;
     int j, S = 1, * i;
 
 
@@ -41,7 +40,7 @@ int main () {
     return 0;
 }
 
-/* Constroi em um vetor o binario da instrucao escolhida */
+/* Constrói em um vetor o binário da instrução escolhida */
 int * INSN  (int TipoIns) {
     unsigned int Dimm;
     int Drd, Drs1, Drs2, FUNC;
@@ -391,7 +390,7 @@ int * INSN  (int TipoIns) {
     return INSN;
 }
 
-/* Posiciona o valor do rd no binario da instrucao */
+/* Posiciona o valor do rd no binário da instrução */
 void INSNrd(int * INSN, int * rd, int Drd) {
     rd = DecimalToBinary(Drd);
         
@@ -402,7 +401,7 @@ void INSNrd(int * INSN, int * rd, int Drd) {
     INSN[20] = rd[27];
 }
 
-/* Posiciona o valor do rs1 no binario da instrucao */
+/* Posiciona o valor do rs1 no binário da instrução */
 void INSNrs1 (int * INSN, int * rs1, int Drs1) {
     rs1 = DecimalToBinary(Drs1);
 
@@ -413,7 +412,7 @@ void INSNrs1 (int * INSN, int * rs1, int Drs1) {
     INSN[12] = rs1[27]; 
 }
 
-/* Posiciona o valor do rs2 no binario da instrucao */
+/* Posiciona o valor do rs2 no binário da instrução  */
 void INSNrs2 (int * INSN, int * rs2, int Drs2) {
     rs2 = DecimalToBinary(Drs2);
 
@@ -424,7 +423,7 @@ void INSNrs2 (int * INSN, int * rs2, int Drs2) {
     INSN[7] = rs2[27];
 }
 
-/* Posiciona o valor do imediato no binario das intrucoes do tipo U */
+/* Posiciona o valor do imediato no binário das instruções do tipo U */
 void UImm (int * INSN, int * imm, unsigned int Dimm) {
     imm = DecimalToBinary(Dimm);
 
@@ -450,7 +449,7 @@ void UImm (int * INSN, int * imm, unsigned int Dimm) {
     INSN[0] = imm[12];   
 }
 
-/* Constroi o INSN de instrucoes do tipo B */
+/* Constrói o INSN de instruções do tipo B */
 void Binsn (int * INSN, int FUNC, int * rs1, int * rs2, int * imm, int Drs1, int Drs2, unsigned int Dimm) {
     INSN[31] = 1;
     INSN[30] = 1;
@@ -514,7 +513,7 @@ void Binsn (int * INSN, int FUNC, int * rs1, int * rs2, int * imm, int Drs1, int
     }
 }
 
-/* Constroi o INSN de instrucoes de load */
+/* Constrói o INSN de instruções de load */
 void LOADinsn (int * INSN, int FUNC, int * rs1, int * rd, int * imm, int Drs1, int Drd, unsigned int Dimm) {
     INSN[31] = 1;
     INSN[30] = 1;
@@ -573,7 +572,7 @@ void LOADinsn (int * INSN, int FUNC, int * rs1, int * rd, int * imm, int Drs1, i
     }
 }
 
-/* Constroi o INSN de instrucoes de store */
+/* Constrói o INSN de instruções de store */
 void STOREinsn (int * INSN, int FUNC, int * rs1, int * rs2, int * imm, int Drs1, int Drs2, unsigned int Dimm){
     INSN[31] = 1;
     INSN[30] = 1;
@@ -623,7 +622,7 @@ void STOREinsn (int * INSN, int FUNC, int * rs1, int * rs2, int * imm, int Drs1,
     }
 }
 
-/* Constroi o INSN de instrucoes do tipo I */
+/* Constrói o INSN de instruções do tipo I */
 void Iinsn (int * INSN, int FUNC, int * rs1, int * rd, int * imm, int Drs1, int Drd, unsigned int Dimm) {
     INSN[31] = 1;
     INSN[30] = 1;
@@ -700,7 +699,7 @@ void Iinsn (int * INSN, int FUNC, int * rs1, int * rd, int * imm, int Drs1, int 
     }
 }
 
-/* Constroi o INSN de instrucoes do tipo R */
+/* Constrói o INSN de instruções do tipo R */
 void Rinsn (int * INSN, int FUNC, int * rs1, int * rs2, int * rd, int Drs1, int Drs2, int Drd) {
     INSN[31] = 1;
     INSN[30] = 1;
@@ -773,7 +772,7 @@ void Rinsn (int * INSN, int FUNC, int * rs1, int * rs2, int * rd, int Drs1, int 
     }
 }
 
-/* Converte um inteiro em um binario, botando cada bit numa posicao de um vetor */
+/* Converte um inteiro em um binário, botando cada bit numa posição de um vetor */
 int * DecimalToBinary (int decimal) {
     int * Binario = malloc(32 * sizeof(int));
     int i;
@@ -787,7 +786,7 @@ int * DecimalToBinary (int decimal) {
     return Binario;
 }
 
-/* Funcao que imprime a lista de opcoes para as intrucoes */
+/* Função que imprime a lista de opções para as instruções */
 void ListaINSN (){
     printf("1 - lui\n2 - auipc\n3 - jal\n4 - jalr\n5 - beq\n6 - bne\n7 - blt\n8 - bge\n9 - bltu\n10 - bgeu\n11 - lb\n12 - lh\n13 - lw\n14 - lbu\n15 - lhu\n16 - sb\n17 - sh\n18 - sw\n19 - addi\n20 - slti\n21 - sltiu\n22 - xori\n23 - ori\n24 - andi\n25 - slli\n26 - srli\n27 - srai\n28 - add\n29 - sub\n30 - sll\n31 - slt\n32 - sltu\n33 - xor\n34 - srl\n35 - sra\n36 - or\n37 - and\n");
     }
