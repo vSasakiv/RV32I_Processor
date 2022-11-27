@@ -4,7 +4,7 @@ Um processador 32-bits que implementa o ISA (Instruction Set Architecture) RISC-
 
 # Descrição
 
-O processador foi feito seguindo o ISA RISC-V 32I tendo palavras de 32 bits, e executando operações aritméticas apenas com números inteiros. Além das operações, também é capaz de executar todas as intruções da ISA, como *Branches, Jumps, Loads e Stores*, apenas não executando as instruções de manipulação de *CSR* (Control and Status Registers), pois os mesmos não se encaixam no escopo do projeto
+O processador foi feito seguindo o ISA RISC-V 32I, tendo palavras de 32 bits e executando operações aritméticas apenas com números inteiros. Além das operações, também é capaz de executar todas as intruções da ISA, como *Branches, Jumps, Loads e Stores*, apenas não executando as instruções de manipulação de *CSR* (Control and Status Registers), pois os mesmos não se encaixam no escopo do projeto
 
 ![](assets/fullcircuit.png)
 
@@ -57,7 +57,8 @@ Ao executar o comando acima, basta digitar `run -all` que toda a simulação ser
 ## Módulo CPU
 Para o módulo CPU, como devemos escolher qual teste, ou seja, qual arquivo de memória deve ser carregado, é necessário ir até o módulo RAM_mod.v, localizado em src/cpu e modificar manualmente qual teste é o escolhido.
 ### GetINSN
-Para mais fácil geração dos arquivos de memória contendo as instruções, também foi feito um script em C, presente no diretório GetINSN, que obtém os códigos binários das instruções, baseados na entrada do usuário.
+Para mais fácil geração dos arquivos de memória contendo as instruções, também foi feito um script em C, presente no diretório GetINSN, que obtém os códigos binários das instruções, baseados na entrada do usuário. Para executar a instrução gerada, basta convertê-la  em um número hexadecimal e adicionar ele em um arquivo .hex que será lido pela RAM_mod. 
+OBS: Nesse programa, os valores de entrada do rd, rs1 e do rs2 devem ser decimais e os valores de entrada do imm devem ser hexadecimais. O valor da saída sempre é um binário.
 # Inspeção
 Para realizar a inspeção de Testbenchs, são utilizadas 3 métodos: verificação por meio do terminal, verificação por timing diagram (arquivo .vcd) e verificação por análise de memória. <br>
 A verificação pelo terminal é feita em módulos mais simples, e é simplesmente visualizada executando `run -all` dentro do ambiente de simulação, e inspecionando as saídas no terminal. <br>
