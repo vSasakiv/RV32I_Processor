@@ -9,9 +9,6 @@ reg [31:0] insn; // reg que contém a instrução
 // reg que contém o valore correto da saída do módulo
 reg sub_sra_c;
 
-// net que contém o sinal de Clock proveniente do gerador
-wire clk;
-
 // net contendo a saída do módulo em teste
 wire sub_sra;
 
@@ -31,12 +28,8 @@ endtask
 // Unidade em teste: decoder de instruções do tipo R
 DecoderRINSN UUT (
   .insn(insn),
-  .clk(clk), 
   .sub_sra(sub_sra)
 );
-
-// gerador de Clock
-ClockGen C0 (.clk(clk));
 
 initial begin
   errors = 0;

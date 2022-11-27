@@ -30,7 +30,6 @@ endtask
 // Unidade em teste: decoder de instruções do tipo B
 DecoderBINSN UUT (
   .insn(insn),
-  .clk(clk), 
   .pc_alu_sel(pc_alu_sel),
   .EQ(EQ),
   .LS(LS),
