@@ -25,13 +25,19 @@ Sinal responsável por decidir se deve ser realizada uma subtração ao invés d
 >sub_sra = 0, operações convencionais <br>
 >sub_sra = 1, operações subtração e shift aritmético <br>
 
-## sx_size
+## mem_extend
 Códigos para extensão de valores provenientes da memória, integrado na própria instrução
-> sx_size = 000, guarda um byte extendido signed <br>
-> sx_size = 001, guarda uma halfword extendida signed <br>
-> sx_size = 010, guarda uma word, não é necessário extensão pois não existem zeros à esquerda <br>
-> sx_size = 100, guarda um byte extendido unsigned <br>
-> sx_size = 101, guarda uma halfword extendida unsigned
+> mem_extend = 000, guarda um byte extendido signed <br>
+> mem_extend = 001, guarda uma halfword extendida signed <br>
+> mem_extend = 010, guarda uma word, não é necessário extensão pois não existem zeros à esquerda <br>
+> mem_extend = 100, guarda um byte extendido unsigned <br>
+> mem_extend = 101, guarda uma halfword extendida unsigned
+
+## mem_size
+Código utilizado para saber que tamanho deve ser armazenado na memória, podendo ser um byte (8 bits), uma halfword (16 bits) ou uma word (32 bits).
+> mem_size = 00, armazena byte
+> mem_size = 01, armazena halfword
+> mem_size = 10, armazena word
 
 ## Addr_sel
 Sinal que seleciona se o endereço a acessar na RAM deve ser o Program Counter (possívelmente acessando uma instrução) ou o valor da ALU (possível executando um store)
@@ -73,7 +79,8 @@ If (I[6:0] == 0110011)
     Sub_sra = 1
   Else
     Sub_sra = I[30]
-  sx_size = x
+  mem_extend = x
+  mem_size = xx
 
   Alu_sel_a = 0
   Alu_sel_b = 0
@@ -97,7 +104,8 @@ If (I[6:0] == 0000011)
   RD = I[11:7]
   FUNC3 = 000
   sub_sra = 0
-  sx_size = I[14:12]
+  mem_extend = I[14:12]
+  mem_size = xx
 
   Alu_sel_a = 0
   Alu_sel_b = 1
@@ -118,7 +126,8 @@ If (I[6:0] == 0010011)
   RSB = x
   RD = I[11:7]
   Func3 = I[14:12]
-  sx_size = x
+  mem_extend = x
+  mem_size = xx
 
   If (FUNC3 == 010 || FUNC3 == 011)
     Sub_sra = 1
@@ -147,7 +156,8 @@ If (I[6:0] == 1100111)
   RD = I[11:7]
   Func3 = 000
   sub_sra = 0
-  sx_size = x
+  mem_extend = x
+  mem_size = xx
 
   Alu_sel_a = 0
   Alu_sel_b = 1
@@ -171,7 +181,8 @@ If (I[6:0] == 0110111)
   RD = I[11:7]
   Func3 = x
   sub_sra = x
-  sx_size = x
+  mem_extend = x
+  mem_size = xx
 
   Alu_sel_a = x
   Alu_sel_b = x
@@ -193,7 +204,8 @@ If (I[6:0] == 0010111)
   RD = I[11:7]
   Func3 = 000
   sub_sra = 0
-  sx_size = x
+  mem_extend = x
+  mem_size = xx
 
   Alu_sel_a = 1
   Alu_sel_b = 1
@@ -215,7 +227,8 @@ If (I[6:0] == 1101111)
   RD = I[11:7]
   Func3 = 000
   sub_sra = 0
-  sx_size = x
+  mem_extend = x
+  mem_size = xx
 
   Alu_sel_a = 1
   Alu_sel_b = 1
@@ -232,12 +245,13 @@ If (I[6:0] == 1101111)
 Instruções *branch*, verifica uma igualdade ou desigualdade entre os registradores rs1 e rs2, e caso ela seja verdade, soma o valor imediato ao Program Counter
 ```
 If (I[6:0] == 1100011)
-  RSA = [19:15]
-  RSB = [24:20]
+  RSA = I[19:15]
+  RSB = I[24:20]
   RD = x
   Func3 = 000
   Sub_sra = 1
-  sx_size = x
+  mem_extend = x
+  mem_size = xx
 
   Alu_sel_a = 0
   Alu_sel_b = 0
@@ -260,12 +274,13 @@ If (I[6:0] == 1100011)
 Instruções que armazenam um valor do registrador na memória, colocando o valor do registrador rs2 no endereço dado pela soma do registrador rs1 com o imediato
 ```
 If (I[6:0] == 0100011)
-  RSA = [19:15]
-  RSB = [24:20]
+  RSA = I[19:15]
+  RSB = I[24:20]
   RD = x
   Func3 = 000
   sub_sra = 0
-  sx_size = x
+  mem_extend = x
+  mem_size = I[13:12]
 
   Alu_sel_a = 0
   Alu_sel_b = 1
