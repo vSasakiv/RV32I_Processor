@@ -7,14 +7,14 @@ module ClockGen_TB ();
 reg correctclk; // Armazena o valor esperado do sinal CLOCK.
 wire clk;
 integer errors, C;
-parameter DELAY = 50000; //Parâmetro arbitrário, tempo entre duas edges do sinal CLOCK.
+parameter DELAY = 5000; //Parâmetro arbitrário, tempo entre duas edges do sinal CLOCK.
 parameter CICLOS = 10; // Quantidade de ciclos testados.
 
 // task que verifica se a saída do módulo é igual ao valor esperado.
 task Check;
     input xpectclk;
     if (clk != xpectclk) begin 
-        $display ("Error, clk: $b, expeted: $b", clk, xpectclk);
+        $display ("Error, clk: %b, expeted: %b", clk, xpectclk);
     errors = errors + 1;
     end
 endtask
@@ -27,10 +27,10 @@ initial begin
     errors = 0;
 
     for (C = 0; C < CICLOS; C = C + 1) begin // Laço for que executa o teste para "CICLOS" ciclos do sinal CLOCK.
-        correctclk = 0;
+        correctclk = 1;
         Check (correctclk);
         #DELAY;
-        correctclk = 1;
+        correctclk = 0;
         Check (correctclk);
         #DELAY;
     end

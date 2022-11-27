@@ -16,7 +16,7 @@ wire [1:0] rd_sel;
 wire [4:0] rs1, rs2, rd;
 
 integer errors;
-parameter delay = 50000; // Parâmetro: tempo entre duas edges do sinal CLOCK.
+parameter delay = 5000; // Parâmetro: tempo entre duas edges do sinal CLOCK.
 
 /* Declaração dos sinais "_c", que registram o valor correto que o sinal deve assumir */
 wire pc_clk_c, insn_clk_c;
@@ -113,7 +113,7 @@ endtask
 CU UTT (.insn(insn), .LU(LU), .LS(LS), .EQ(EQ), .addr_sel(addr_sel), .pc_next_sel(pc_next_sel), 
 .sub_sra(sub_sra), .pc_alu_sel(pc_alu_sel), .rd_clk(rd_clk), .mem_clk(mem_clk), .alu_sel_a(alu_sel_a),
 .alu_sel_b(alu_sel_b), .pc_clk(pc_clk), .insn_clk(insn_clk), .mem_size(mem_size), .mem_extend(mem_extend), 
-.func(func), .rd_sel(rd_sel), .rs1(rs1), .rs2(rs2), .rd(rd));
+.func(func), .rd_sel(rd_sel), .rs1(rs1), .rs2(rs2), .rd(rd), .clk(clk));
 
 /* Atribuindo os valores esperadas aos sinais "_c" */
 assign rs1_c = insn[19:15];
@@ -148,7 +148,7 @@ initial begin
     errors = 0; 
     insn = 32'h00208463; /* Tipo B, instrução: beq x01, x02, 0x08 */
     #delay
-    Check (1'b0, 1'b0, 1'b1, 1'b0 , 1'b0, 1'b0, 1'b0, 1'b0, 3'b000, 2'b10, pc_clk_c, insn_clk_c, mem_size_c, mem_extend_c, rs1_c, rs2_c, rd_c);
+    Check (1'b0, 1'b0, 1'b1, 1'bx , 1'b0, 1'b0, 1'b0, 1'b0, 3'b000, 2'b10, pc_clk_c, insn_clk_c, mem_size_c, mem_extend_c, rs1_c, rs2_c, rd_c);
     EQ = 1; /* Para essa instrução, foi considerado x01 e x02 iguais, ou seja, EQ = 1 */
     #delay
     Check (1'b0, 1'b0, 1'b1, 1'b1 , 1'b0, 1'b0, 1'b0, 1'b0, 3'b000, 2'b10, pc_clk_c, insn_clk_c, mem_size_c, mem_extend_c, rs1_c, rs2_c, rd_c);
