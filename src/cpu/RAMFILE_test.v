@@ -1,3 +1,4 @@
+/* Testbench para verificar se os arquivos .hex foram realmente carregados na memória, neste testbench, simplesmente percorremos a memória e expomos os valores por meio do $monitor no terminal, e verificamos se os valores inseridos pelo arquivo entraram na memória. */
 `timescale 1 ns / 100 ps
 
 module RAMFILETB ();

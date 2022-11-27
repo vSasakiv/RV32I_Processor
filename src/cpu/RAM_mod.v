@@ -1,3 +1,5 @@
+/* Módulo da memória RAM utilizada para simulação do projeto, não sendo um
+módulo convencional, mas apenas uma forma de realizar os testes. */
 module RAM (
     input mem_clk,
     input [31:0] data_i,
@@ -6,9 +8,9 @@ module RAM (
     output [31:0] data_o
 );
 
-reg [7:0] memory [0 : 65540]; // needs to be 32'hffffffff
+reg [7:0] memory [0 : 65540]; // precisaria ser 32'hffffffff, mas não é conveniente ter uma memória de tamanho máximo na simulação. 
 
- /* Escolha do teste para ser executado 
+  /* Escolha do teste para ser executado 
     Formato da setença: $readmemh({"tests/","teste","/RAM.hex"}, memory);
     No lugar de "teste", substituir por uma das opções abaixo: 
 
@@ -36,6 +38,7 @@ reg [7:0] memory [0 : 65540]; // needs to be 32'hffffffff
 /* APENAS PARA A REALIZAÇÃO DE TESTES*/
 /*!!!!!!*/
 initial begin
+  // realiza carregamento de um arquivo .hex para a memória
   $readmemh({"testes/","testeRecursao","/RAM.hex"}, memory);
 end
 /*!!!!!!*/
@@ -57,6 +60,7 @@ end
 /* APENAS PARA A REALIZAÇÃO DE TESTES*/
 /*!!!!!!*/
 always @(*) begin
+  // cada vez que qualquer sinal muda, escreve/sobrescreve um arquivo .hex contendo o conteúdo da memória RAM
   $writememh("RAMOUT.hex", memory);
 end
 /*!!!!!!*/
